@@ -1,6 +1,7 @@
 # projeto-brilhador-backend
 
-<p> </p>
+
+<h2> Recomendação: sempre garantir que a branch de sua equipe está atualizada com o que tiver mais novo na branch "development", faça um merge toda vez antes de iniciar alguma alteração para garantir que terá a versão mais atual e possivelmente a mais estável de cada módulo.</h2>
 
 <h3> Inicializando o projeto: (Assumindo que tenha docker instalado)</h3>
 
