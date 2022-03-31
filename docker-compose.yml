@@ -4,22 +4,13 @@ networks:
   brilhador:
     driver: bridge
 services:
-  spring-boot:
-    container_name: spring-boot
-    image: openjdk:17.0.2-slim-buster
-    volumes:
-      - ./:/app
-    working_dir: /app
-    ports:
-      - "8080:8080"
-    command: ./mvnw spring-boot:run -X
-    networks:
-      - brilhador
-  postgres:
-    container_name: postgresql
+  postgres-brilhador:
+    container_name: postgres-brilhador
     image: postgres
     environment:
+      POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "brilhador"
     ports:
       - "5432:5432"
     volumes:
@@ -38,5 +29,27 @@ services:
     volumes:
       - .:/app
     working_dir: /app
+    networks:
+      - brilhador
+  api-gateway:
+    container_name: brilhador-api-gateway
+    image: openjdk:17.0.2-slim-buster
+    working_dir: /app
+    ports:
+      - "4000:8080"
+    volumes:
+      - ./api-gateway:/app
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  authentication-service-brilhador:
+    container_name: authentication-service-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./authentication:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
