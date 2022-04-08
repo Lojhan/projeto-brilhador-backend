@@ -1,4 +1,5 @@
 package br_up_edu.strategicsystemsproject.domain;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

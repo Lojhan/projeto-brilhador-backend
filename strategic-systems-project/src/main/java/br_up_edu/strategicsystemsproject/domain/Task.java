@@ -5,22 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Project {
+public class Task {
     
     @Id
     @GeneratedValue
     private Long id;
     private String name;
     private String description;
-    private Double daysToDelivery;
-    // private Area area;
+    private Double daysToFinish;
+    // private Project project;
     
-
-    public Project(String name, String descripction, Double daysToDelivery, Area area) {
+    public Task(String name, Project project, String descripction, Double daysToFinish) {
         this.name = name;
+        // this.project = project;
         this.description = descripction;
-        this.daysToDelivery = daysToDelivery;
-        // this.area = area;
+        this.daysToFinish = daysToFinish;
     }
 
     public Long getId() {
@@ -30,6 +29,14 @@ public class Project {
     public void setId(Long id) {
         this.id = id;
     }
+
+    // public Project getProject() {
+    //     return this.project;
+    // }
+
+    // public void setProject(Project project) {
+    //     this.project = project;
+    // }
 
     public String getName() {
         return this.name;
@@ -47,21 +54,13 @@ public class Project {
         this.description = description;
     }
 
-    public Double getDaysToDelivery() {
-        return this.daysToDelivery;
+    public Double getDaysToFinish() {
+        return this.daysToFinish;
     }
 
-    public void setDaysToDelivery(Double daysToDelivery) {
-        this.daysToDelivery = daysToDelivery;
+    public void setDaysToFinish(Double daysToFinish) {
+        this.daysToFinish = daysToFinish;
     }
-
-    // public Area getArea() {
-    //     return this.area;
-    // }
-
-    // public void setArea(Area area) {
-    //     this.area = area;
-    // }
 
 
 }

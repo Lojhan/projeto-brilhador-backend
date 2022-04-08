@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import br_up_edu.strategicsystemsproject.domain.Area;
 import br_up_edu.strategicsystemsproject.domain.Project;
 import br_up_edu.strategicsystemsproject.repository.ProjectRepository;
 
@@ -30,10 +29,10 @@ public class ProjectController {
         return repository.findById(id).get();
     }
 
-    @GetMapping("/projects/{id}")
-    Project findAreaByProject(@PathVariable Long id) {
-        return repository.findById(id).get();
-    }
+    // @GetMapping("/projects/{id}")
+    // Project findAreaByProject(@PathVariable Long id) {
+    //     return repository.findById(id).get();
+    // }
 
     @PostMapping("/projects")
     Project include(@RequestBody Project newProject){
