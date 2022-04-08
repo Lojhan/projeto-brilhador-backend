@@ -26,7 +26,7 @@ public class CreateTicketController {
         TicketInfo info
     ) {
         try {
-            Ticket ticket = service.createTicketForUser(user.getId(), info);
+            Ticket ticket = service.createTicketForUser(user, info);
             return ResponseEntity.status(200).body(ticket);
         } catch (Exception e) {
             System.out.println(e.getMessage());

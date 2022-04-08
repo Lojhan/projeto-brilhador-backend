@@ -11,9 +11,17 @@ public class SenderConfig {
     @Value("${queue.name}")
     private String message;
 
+    @Value("${ticket-mail.queue.name}")
+    private String ticketMailQueue;
+
     @Bean(name = "mailQueue")
     public Queue mailQueue() {
         return new Queue(message, true);
+    }
+
+    @Bean(name = "ticketMailQueue")
+    public Queue ticketMailQueue() {
+        return new Queue(ticketMailQueue, true);
     }
 
     // @Bean(name = "anotherQueue")

@@ -65,3 +65,14 @@ services:
     networks:
       - brilhador
 
+  mail-service-deconto:
+    container_name: mail-service-deconto
+    image: node:17.5.0-alpine
+    volumes:
+      - ./mail:/app
+    working_dir: /app
+    command: npm run start:dev
+    ports:
+      - "4000:3000"
+    networks:
+      - brilhador
