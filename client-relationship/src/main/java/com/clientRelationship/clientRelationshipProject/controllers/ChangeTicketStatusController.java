@@ -2,7 +2,6 @@ package com.clientRelationship.clientRelationshipProject.controllers;
 import java.util.UUID;
 
 import com.clientRelationship.clientRelationshipProject.models.base.Ticket;
-import com.clientRelationship.clientRelationshipProject.models.dto.TicketInfo;
 import com.clientRelationship.clientRelationshipProject.models.dto.UpdateTicketStatusDto;
 import com.clientRelationship.clientRelationshipProject.models.dto.UserResponse;
 import com.clientRelationship.clientRelationshipProject.models.exceptions.NotFound;

@@ -1,5 +1,4 @@
 version: "3.9"
-
 networks:
   brilhador:
     driver: bridge
@@ -75,4 +74,3 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
-
