@@ -3,6 +3,7 @@ package br_up_edu.strategicsystemsproject.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import br_up_edu.strategicsystemsproject.repository.ProjectRepository;
 
 @Entity
 public class Project {
@@ -13,14 +14,16 @@ public class Project {
     private String name;
     private String description;
     private Double daysToDelivery;
-    // private Area area;
-    
 
-    public Project(String name, String descripction, Double daysToDelivery, Area area) {
+
+    public Project() {
+
+    }
+
+    public Project(String name, String descripction, Double daysToDelivery) {
         this.name = name;
         this.description = descripction;
         this.daysToDelivery = daysToDelivery;
-        // this.area = area;
     }
 
     public Long getId() {
@@ -54,14 +57,5 @@ public class Project {
     public void setDaysToDelivery(Double daysToDelivery) {
         this.daysToDelivery = daysToDelivery;
     }
-
-    // public Area getArea() {
-    //     return this.area;
-    // }
-
-    // public void setArea(Area area) {
-    //     this.area = area;
-    // }
-
 
 }

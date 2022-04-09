@@ -16,6 +16,7 @@ public class AreaStrategicsController {
     
     private final AreaRepository repository;
 
+
     AreaStrategicsController(AreaRepository repository){
         this.repository = repository;
     }

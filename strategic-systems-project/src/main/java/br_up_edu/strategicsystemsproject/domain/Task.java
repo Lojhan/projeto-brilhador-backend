@@ -13,13 +13,17 @@ public class Task {
     private String name;
     private String description;
     private Double daysToFinish;
-    // private Project project;
+    private String status;
     
-    public Task(String name, Project project, String descripction, Double daysToFinish) {
+    public Task() {
+        
+    }
+
+    public Task(String name, Project project, String descripction, Double daysToFinish, String status) {
         this.name = name;
-        // this.project = project;
         this.description = descripction;
         this.daysToFinish = daysToFinish;
+        this.status = status;
     }
 
     public Long getId() {
@@ -29,14 +33,6 @@ public class Task {
     public void setId(Long id) {
         this.id = id;
     }
-
-    // public Project getProject() {
-    //     return this.project;
-    // }
-
-    // public void setProject(Project project) {
-    //     this.project = project;
-    // }
 
     public String getName() {
         return this.name;
@@ -60,6 +56,14 @@ public class Task {
 
     public void setDaysToFinish(Double daysToFinish) {
         this.daysToFinish = daysToFinish;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 

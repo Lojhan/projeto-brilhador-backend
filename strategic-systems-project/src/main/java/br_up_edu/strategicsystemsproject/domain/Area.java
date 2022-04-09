@@ -13,6 +13,10 @@ public class Area {
     private String name;;
     private String objetive;
 
+    public Area() {
+       
+    }
+
     public Area(String name, String objetive) {
         this.name = name;
         this.objetive = objetive;
