@@ -14,7 +14,12 @@ public class UserResponse implements Serializable {
     private Address address;
     private Role role;
 
+    public UserResponse() {
+        super();
+    }
+
     public UserResponse(UUID id, String name, String email, String cpf, String phone, Address address, Role role) {
+        super();
         this.id = id;
         this.name = name;
         this.email = email;
@@ -78,5 +83,18 @@ public class UserResponse implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String toJSON() {
+        // creates a json string from the object data
+        String json = "{";
+        json += "\"id\":\"" + id + "\",";
+        json += "\"name\":\"" + name + "\",";
+        json += "\"email\":\"" + email + "\",";
+        json += "\"cpf\":\"" + cpf + "\",";
+        json += "\"phone\":\"" + phone + "\",";
+        json += "\"role\":\"" + role + "\"";
+        json += "}";
+        return json;
     }
 }

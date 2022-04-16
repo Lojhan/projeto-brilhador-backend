@@ -8,14 +8,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SenderConfig {
 
-    @Value("${queue.name}")
+    
+    @Value("${queue.name.userTicket}")
     private String message;
 
     @Value("${ticket-mail.queue.name}")
     private String ticketMailQueue;
 
-    @Bean(name = "mailQueue")
-    public Queue mailQueue() {
+    @Bean(name = "userTicketsQueue")
+    public Queue userTicketsQueue() {
         return new Queue(message, true);
     }
 

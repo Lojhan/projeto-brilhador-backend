@@ -30,4 +30,14 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("")
+    public ResponseEntity<UserResponse[]> getAllUsers() {
+        try {
+            UserResponse[] users = userService.getAllUsers();
+            return ResponseEntity.ok().body(users);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
