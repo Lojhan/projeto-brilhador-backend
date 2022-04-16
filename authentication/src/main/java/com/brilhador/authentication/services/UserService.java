@@ -21,6 +21,6 @@ public class UserService {
     }
 
     public UserResponse[] getAllUsers() {
-        return userRepository.findAll().stream().map(u -> u.toUserResponse()).toArray(UserResponse[]::new);
+        return userRepository.findAll().stream().map(User::toUserResponse).toArray(UserResponse[]::new);
     }
 }
