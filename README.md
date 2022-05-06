@@ -57,4 +57,4 @@
     <h5>Hellen Gurgacz - 13360051</h5>
     <h5> Julia Scheffer - 13219073 </h5>
     <h5> Sara Alves - 13164139 </h5>
-    <h5> Rafaela - 12196894 </h5>
+    <h5> Rafaela Barbosa @rafaelabarb - 12196894 </h5>
