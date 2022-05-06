@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.brilhador</groupId>
-	<artifactId>project</artifactId>
+	<artifactId>authentication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>project</name>
+	<name>authentication</name>
 	<description>Spring Boot project</description>
 	<properties>
 		<java.version>17</java.version>
