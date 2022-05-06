@@ -49,7 +49,7 @@
    <h5>Graziela Rudinger - 8812980820 </h5>
    <h5>Gustavo - ??? </h5>
    <h5>Felipe Macchi - 8813350919 </h5>
-   <h5>Felipe Sushi - ??? </h5>
+   <h5>Felipe Tsuchiya - 13371720 </h5>
    <h5>Gabriel Teixeira - 13332473 </h5>
    <h5>Lucas Damião - ??? </h5>
    <h5>Matheus - ??? </h5>
