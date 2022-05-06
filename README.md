@@ -46,7 +46,7 @@
    <h5>Felipe Macchi - ???</h5>
    <h5>Rafael Romig -???</h5>
    <h5>Lucas Goulart Bunhak Santos - RGM </h5>
-   <h5>Yuri Cesar - RGM </h5>
+   <h5>Yuri Valeixo - 8813442643 </h5>
    <h5>Graziela - RGM </h5>
   
   <h3> Compras e vendas</h3>
