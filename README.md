@@ -1,6 +1,5 @@
 # projeto-brilhador-backend
 
-
 <h2> Recomendação: sempre garantir que a branch de sua equipe está atualizada com o que tiver mais novo na branch "development", faça um merge toda vez antes de iniciar alguma alteração para garantir que terá a versão mais atual e possivelmente a mais estável de cada módulo.</h2>
 
 <h3> Inicializando o projeto: (Assumindo que tenha docker instalado)</h3>
@@ -18,6 +17,9 @@
    <h5>Gabriel Marchiorato Oliveira - 13022474</h5>
    <h5><s>Douglas Gorges - 12851469 </s> - transfered</h5>
    <h5>Igor Mateus Rodrigues de Oliveira - 12861324</h5>
+   <h5>Lucas Rocha Cardoso da Silva - 12849472</h5>
+   <h5>Marco Lopes - 12861987</h5>
+   <h5>Bruno Vasquez - 12806170</h5>
   
   <h3> Gestão da cadeia de suprimentos</h3>
    <h5>Antonio Eduardo Oliveira - 12777366</h5>
@@ -43,7 +45,7 @@
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Felipe Macchi - ???</h5>
    <h5>Rafael Romig -???</h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Lucas Goulart Bunhak Santos - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
   

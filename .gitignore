@@ -1,3 +1,5 @@
 **/target
 .vscode
 mail-deconto-nest
+
+**/node_modules

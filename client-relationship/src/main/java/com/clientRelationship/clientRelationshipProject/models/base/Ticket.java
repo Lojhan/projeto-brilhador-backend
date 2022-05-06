@@ -22,8 +22,8 @@ public class Ticket {
 
     private String title;
     private String description;
-    private String status;
-    private String priority;
+    private TicketStatus status;
+    private TicketPriority priority;
     private UUID userId;
     private UUID operatorId;
 
@@ -34,8 +34,8 @@ public class Ticket {
         UUID id,
         String title, 
         String description, 
-        String status, 
-        String priority, 
+        TicketStatus status, 
+        TicketPriority priority, 
         UUID userId,
         UUID operatorId
         ) {
@@ -51,8 +51,8 @@ public class Ticket {
     public Ticket(
         String title, 
         String description, 
-        String status, 
-        String priority, 
+        TicketStatus status, 
+        TicketPriority priority, 
         UUID userId,
         UUID operatorId
         ) {
@@ -88,19 +88,19 @@ public class Ticket {
         this.description = description;
     }
 
-    public String getStatus() {
+    public TicketStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TicketStatus status) {
         this.status = status;
     }
 
-    public String getPriority() {
+    public TicketPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(TicketPriority priority) {
         this.priority = priority;
     }
 
