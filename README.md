@@ -36,19 +36,24 @@
    <h5> Aluno - RGM </h5>
   
   <h3>  Recursos humanos</h3>
-   <h5>Pedro Kappes - ???</h5>
+   <h5>Pedro Kappes - 12904937</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
   
   <h3> Financeiro, contábil e ativos</h3>
-   <h5>Felipe Macchi - ???</h5>
-   <h5>Rafael Romig -13180894</h5>
+   <h5>Rafael Romig - 13180894</h5>
    <h5>Samuel Diel - 13177770 </h5>
    <h5>Lucas Goulart Bunhak Santos - 29470757 </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Yuri Valeixo - 8813442643 </h5>
+   <h5>Graziela Rudinger - 8812980820 </h5>
+   <h5>Gustavo - ??? </h5>
+   <h5>Felipe Macchi - ???</h5>
+   <h5>Felipe Sushi - ??? </h5>
+   <h5>Gabriel - ??? </h5>
+   <h5>Lucas Damião - ??? </h5>
+   <h5>Matheus - ??? </h5>
   
   <h3> Compras e vendas</h3>
    <h5>Lucas Rodrigues Leite - 8813279432</h5> 
