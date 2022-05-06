@@ -40,7 +40,7 @@
    <h5>Maicon Businari - 13359444</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5> Matheus Zalamena e Souza - 12948128 </h5>
   
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Felipe Macchi - ???</h5>
