@@ -48,7 +48,7 @@
    <h5>Yuri Valeixo - 8813442643 </h5>
    <h5>Graziela Rudinger - 8812980820 </h5>
    <h5>Gustavo - ??? </h5>
-   <h5>Felipe Macchi - ???</h5>
+   <h5>Felipe Macchi - 8813350919 </h5>
    <h5>Felipe Sushi - ??? </h5>
    <h5>Gabriel - ??? </h5>
    <h5>Lucas Damião - ??? </h5>
