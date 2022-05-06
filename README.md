@@ -34,7 +34,7 @@
    <h5> Aluno - RGM </h5>
   
   <h3>  Recursos humanos</h3>
-   <h5>Pedro Kappes - ???</h5>
+   <h5>Pedro Kappes - 12904937</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
