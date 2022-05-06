@@ -43,11 +43,16 @@
    <h5> Aluno - RGM </h5>
   
   <h3> Financeiro, contábil e ativos</h3>
-   <h5>Felipe Macchi - ???</h5>
    <h5>Rafael Romig -???</h5>
-   <h5>Lucas Goulart Bunhak Santos - RGM </h5>
+   <h5>Lucas Goulart Bunhak Santos - ??? </h5>
    <h5>Yuri Valeixo - 8813442643 </h5>
-   <h5>Graziela - RGM </h5>
+   <h5>Graziela Rudinger - 8812980820 </h5>
+   <h5>Gustavo - ??? </h5>
+   <h5>Felipe Macchi - ???</h5>
+   <h5>Felipe Sushi - ??? </h5>
+   <h5>Gabriel - ??? </h5>
+   <h5>Lucas Damião - ??? </h5>
+   <h5>Matheus - ??? </h5>
   
   <h3> Compras e vendas</h3>
    <h5>Lucas Rodrigues Leite - 8813279432</h5> 
