@@ -39,7 +39,7 @@
    <h5>Pedro Kappes - 12904937</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5> Guilherme Ghisi - 12564621 </h5>
    <h5> Aluno - RGM </h5>
   
   <h3> Financeiro, contábil e ativos</h3>
