@@ -56,8 +56,8 @@
    <h5>Carlos Roberto Pereira Neres Filho - 8813207156</h5>
   
   <h3> Sistemas estratégicos</h3>
-   <h5>Rafaela - ???</h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Anna Cruz - 12222062</h5>
+   <h5>Rafaela Barbosa - 12196894 </h5>
+   <h5>Hellen Gurgacz - 13360051 </h5>
+   <h5>Sara Vieira - 13164139 </h5>
+   <h5>Julia Scheffer - 13219073 </h5>
