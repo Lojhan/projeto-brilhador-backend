@@ -50,7 +50,7 @@
    <h5>Gustavo - ??? </h5>
    <h5>Felipe Macchi - 8813350919 </h5>
    <h5>Felipe Sushi - ??? </h5>
-   <h5>Gabriel - ??? </h5>
+   <h5>Gabriel Teixeira - 13332473 </h5>
    <h5>Lucas Damião - ??? </h5>
    <h5>Matheus - ??? </h5>
   
