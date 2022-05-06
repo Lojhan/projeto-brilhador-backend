@@ -45,6 +45,7 @@
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Felipe Macchi - ???</h5>
    <h5>Rafael Romig -13180894</h5>
+   <h5>Samuel Diel - 13177770 </h5>
    <h5>Lucas Goulart Bunhak Santos - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
