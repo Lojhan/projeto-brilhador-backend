@@ -7,14 +7,15 @@
 ```
  docker-compose up
 ```
+<h3>Caso esteja utilizando máquina Windows e houver problema ao utilizar o comando acima, verifique se o "End of Line Sequence" está em "LF" dos arquivos "mvnw" </h3>
 
 <h2>Grupos: </h2>
-  
+
   <h3> Relacionamento com o cliente</h3>
    <h5>Vinícius Lojhan Martinez Hernandes - 12855073</h5>
-   <h5>Jorge de Oliveira Neto - 12969371</h5>
+   <h5>Jorge de Oliveira Neto -RGM 12969371</h5>
    <h5>Lucas Raulin Lunik - 12857815<h5>
-   <h5>Gabriel Marchiorato Oliveira - 13022474</h5>
+   <h5>Gabriel Marchiorato Oliveira - RGM 13022474</h5>
    <h5><s>Douglas Gorges - 12851469 </s> - transfered</h5>
    <h5>Igor Mateus Rodrigues de Oliveira - 12861324</h5>
    <h5>Lucas Rocha Cardoso da Silva - 12849472</h5>
@@ -27,21 +28,21 @@
    <h5> Raphael Marangoni - 13178130 </h5>
    <h5> Igor Cristian - 13188062 </h5>
    <h5> Aluno - RGM </h5>
-  
+
   <h3> Estoque e produção</h3>
    <h5>Lucas Volkmann - ???</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-  
+
   <h3>  Recursos humanos</h3>
    <h5>Pedro Kappes - 12904937</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-  
+
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Rafael Romig - 13180894</h5>
    <h5>Samuel Diel - 13177770 </h5>
@@ -54,13 +55,13 @@
    <h5>Gabriel Teixeira - 13332473 </h5>
    <h5>Lucas Damião - ??? </h5>
    <h5>Matheus - ??? </h5>
-  
+   
   <h3> Compras e vendas</h3>
-   <h5>Lucas Rodrigues Leite - 8813279432</h5> 
+   <h5>Lucas Rodrigues Leite - 8813279432</h5>
    <h5>Vinícius Kruchelski Gugelmin - 8813365614</h5>
    <h5>Garbriel Fernando Cazeque Zanin - 8813372831</h5>
    <h5>Carlos Roberto Pereira Neres Filho - 8813207156</h5>
-  
+
   <h3> Sistemas estratégicos</h3>
     <h5>Anna Cruz - 12222062</h5>
     <h5>Hellen Gurgacz @hellengurgaczz - 13360051</h5>
