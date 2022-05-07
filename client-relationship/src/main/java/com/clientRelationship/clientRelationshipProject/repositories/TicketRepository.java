@@ -17,6 +17,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     public Optional<Ticket> findById(UUID id);
 
     @Query("select t from Ticket as t where t.userId = ?1")
-    public Optional<Ticket[]> findByUserId(UUID userId);
+    public Optional<Ticket[]> findTicketsByUserId(UUID userId);
 }
     
