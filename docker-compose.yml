@@ -53,3 +53,26 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+  client-relationship-service-brilhador:
+    container_name: client-relationship-service-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./client-relationship:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  mail-service-brilhador:
+    container_name: mail-services-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./mail:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+

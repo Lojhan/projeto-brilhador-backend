@@ -22,10 +22,10 @@
    <h5>Bruno Vasquez - 12806170</h5>
   
   <h3> Gestão da cadeia de suprimentos</h3>
-   <h5>Antonio Eduardo Oliveira - ???</h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Antonio Eduardo Oliveira - 12777366</h5>
+   <h5> Vinícius Lisboa - 13197347 </h5>
+   <h5> Raphael Marangoni - 13178130 </h5>
+   <h5> Igor Cristian - 13188062 </h5>
    <h5> Aluno - RGM </h5>
   
   <h3> Estoque e produção</h3>
@@ -44,8 +44,9 @@
   
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Felipe Macchi - ???</h5>
-   <h5>Rafael Romig -???</h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Rafael Romig -13180894</h5>
+   <h5>Samuel Diel - 13177770 </h5>
+   <h5>Lucas Goulart Bunhak Santos - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
   
@@ -56,8 +57,8 @@
    <h5>Carlos Roberto Pereira Neres Filho - 8813207156</h5>
   
   <h3> Sistemas estratégicos</h3>
-   <h5>Rafaela - ???</h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5>Anna Cruz - 12222062</h5>
+   <h5>Rafaela Barbosa - 12196894 </h5>
+   <h5>Hellen Gurgacz - 13360051 </h5>
+   <h5>Sara Vieira - 13164139 </h5>
+   <h5>Julia Scheffer - 13219073 </h5>
