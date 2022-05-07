@@ -27,7 +27,7 @@
    <h5> Aluno - RGM</h5>
   
   <h3> Estoque e produção</h3>
-   <h5>Lucas Volkmann - ???</h5>
+   <h5>Lucas Volkmann - 13375890 </h5>
    <h5>Milena Rodrigues Milicio - RGM 13335545</h5>
    <h5> Aramis Chang Chain - RGM 8813440250 </h5>
    <h5> Aluno - RGM </h5>
