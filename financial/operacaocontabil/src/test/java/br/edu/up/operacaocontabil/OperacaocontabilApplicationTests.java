@@ -1,15 +1,13 @@
-package com.apigateway.gateway;
+package br.edu.up.operacaocontabil;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GatewayApplicationTests {
-
+class OperacaocontabilApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }
