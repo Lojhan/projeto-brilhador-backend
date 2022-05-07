@@ -8,6 +8,7 @@
 ```
  docker-compose up
 ```
+<h3>Caso esteja utilizando máquina Windows e houver problema ao utilizar o comando acima, verifique se o "End of Line Sequence" está em "LF" dos arquivos "mvnw" </h3>
 
 <h2>Grupos: </h2>
   
