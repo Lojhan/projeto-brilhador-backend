@@ -17,7 +17,7 @@
    <h5>Lucas Raulin Lunik - 12857815<h5>
    <h5>Gabriel Marchiorato Oliveira - RGM 13022474</h5>
    <h5><s>Douglas Gorges - 12851469 </s> - transfered</h5>
-   <h5>Igor Mateus Rodrigues de Oliveira - 12861324</h5>
+   <h5>Igor Mateus Rodrigues de Oliveira - @imigoroliveira  - 12861324</h5>
    <h5>Lucas Rocha Cardoso da Silva - 12849472</h5>
    <h5>Marco Lopes - 12861987</h5>
    <h5>Bruno Vasquez - 12806170</h5>
