@@ -42,6 +42,7 @@
    <h5>Guilherme Ghisi - 12564621 </h5>
    <h5>Matheus Zalamena e Souza - 12948128 </h5>
    <h5>Naiara de Mello Martins - 11934603 </h5>
+   <h5>André da Silva Rocco - 12235296 </h5>
  
   
   <h3> Financeiro, contábil e ativos</h3>
