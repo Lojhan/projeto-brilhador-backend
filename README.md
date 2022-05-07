@@ -24,14 +24,14 @@
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5> Aluno - RGM</h5>
   
   <h3> Estoque e produção</h3>
    <h5>Lucas Volkmann - ???</h5>
    <h5>Milena Rodrigues Milicio - RGM 13335545</h5>
-   <h5>Gabriel Branco de Azevedo - RGM 13322737</h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
+   <h5>Luiz Felipe A. Oliveira - 13216082</h5>
   
   <h3>  Recursos humanos</h3>
    <h5>Pedro Kappes - ???</h5>
