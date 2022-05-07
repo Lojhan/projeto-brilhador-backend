@@ -25,8 +25,7 @@
    <h5>Antonio Eduardo Ribeiro Oliveira - 12777366</h5>
    <h5> Vinícius Lisboa - 13197347 </h5>
    <h5> Raphael Marangoni -  13178130 </h5>
-   <h5> Igor Cristian - 13188062 </h5>
-   <h5> Aluno - RGM </h5>
+   <h5> Igor Mucharski - 13188062 </h5>
   
   <h3> Estoque e produção</h3>
    <h5>Lucas Volkmann - ???</h5>
