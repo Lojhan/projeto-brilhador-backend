@@ -24,7 +24,7 @@
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
    <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
+   <h5> Luiz Felipe A. Oliveira - 13216082</h5>
   
   <h3> Estoque e produção</h3>
    <h5>Lucas Volkmann - ???</h5>
