@@ -1,11 +1,7 @@
 package com.clientRelationship.clientRelationshipProject.configuration.messaging;
 
-import java.io.IOException;
-
 import com.clientRelationship.clientRelationshipProject.models.dto.UserTicketDTO;
 
-import org.apache.tomcat.util.json.JSONParser;
-import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
