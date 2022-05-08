@@ -1,7 +1,5 @@
 package com.clientRelationship.clientRelationshipProject.models.dto;
 
-import com.clientRelationship.clientRelationshipProject.models.dto.UserResponse;
-
 public class ValidationResponse {
     boolean valid;
     UserResponse user;

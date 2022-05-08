@@ -3,6 +3,7 @@ package com.brilhador.authentication.services;
 import java.util.UUID;
 
 import com.brilhador.authentication.models.base.User;
+import com.brilhador.authentication.models.dto.UserResponse;
 import com.brilhador.authentication.models.exceptions.NotFound;
 import com.brilhador.authentication.repositories.UserRepository;
 
@@ -17,5 +18,9 @@ public class UserService {
 
     public User getUser(UUID id) throws NotFound {
         return userRepository.findById(id).orElseThrow(() -> new NotFound("User"));
+    }
+
+    public UserResponse[] getAllUsers() {
+        return userRepository.findAll().stream().map(User::toUserResponse).toArray(UserResponse[]::new);
     }
 }
