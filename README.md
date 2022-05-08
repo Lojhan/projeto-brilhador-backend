@@ -17,7 +17,7 @@
    <h5>Lucas Raulin Lunik - 12857815<h5>
    <h5>Gabriel Marchiorato Oliveira - RGM 13022474</h5>
    <h5><s>Douglas Gorges - 12851469 </s> - transfered</h5>
-   <h5>Igor Mateus Rodrigues de Oliveira - 12861324</h5>
+   <h5>Igor Mateus Rodrigues de Oliveira - @imigoroliveira  - 12861324</h5>
    <h5>Lucas Rocha Cardoso da Silva - 12849472</h5>
    <h5>Marco Lopes - 12861987</h5>
    <h5>Bruno Vasquez - 12806170</h5>
@@ -53,9 +53,9 @@
    <h5>Felipe Macchi - 8813350919 </h5>
    <h5>Felipe Tsuchiya - 13371720 </h5>
    <h5>Gabriel Teixeira - 13332473 </h5>
-   <h5>Lucas Damião - ??? </h5>
+   <h5>Lucas Damião - 8813331787 </h5>
    <h5>Matheus - ??? </h5>
-   
+  
   <h3> Compras e vendas</h3>
    <h5>Lucas Rodrigues Leite - 8813279432</h5>
    <h5>Vinícius Kruchelski Gugelmin - 8813365614</h5>

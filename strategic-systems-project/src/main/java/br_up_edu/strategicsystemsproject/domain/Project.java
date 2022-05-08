@@ -3,7 +3,6 @@ package br_up_edu.strategicsystemsproject.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import br_up_edu.strategicsystemsproject.repository.ProjectRepository;
 
 @Entity
 public class Project {
