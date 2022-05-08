@@ -53,9 +53,9 @@
    <h5>Felipe Macchi - 8813350919 </h5>
    <h5>Felipe Tsuchiya - 13371720 </h5>
    <h5>Gabriel Teixeira - 13332473 </h5>
-   <h5>Lucas Damião - ??? </h5>
+   <h5>Lucas Damião - 8813331787 </h5>
    <h5>Matheus - ??? </h5>
-   
+  
   <h3> Compras e vendas</h3>
    <h5>Lucas Rodrigues Leite - 8813279432</h5>
    <h5>Vinícius Kruchelski Gugelmin - 8813365614</h5>
