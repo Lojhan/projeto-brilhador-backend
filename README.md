@@ -48,7 +48,7 @@
  <h3> Reinicie seu docker compose e você já deverá ter acesso a sua aplicação através da url:</h3>
  
  ``` 
- http://localhost:4000/nome-do-container/sua-rota 
+ http://localhost:4000/base-da-url/sua-rota 
  
  ```
 
