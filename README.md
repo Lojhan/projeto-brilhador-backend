@@ -91,6 +91,7 @@
    <h5>Rafael Romig - 13180894</h5>
    <h5>Samuel Diel - 13177770 </h5>
    <h5>Lucas Goulart Bunhak Santos - 29470757 </h5>
+   <h5>Ana Maria Vargas - 13322842 </h5>
    <h5>Yuri Valeixo - 8813442643 </h5>
    <h5>Graziela Rudinger - 8812980820 </h5>
    <h5>Gustavo - ??? </h5>
