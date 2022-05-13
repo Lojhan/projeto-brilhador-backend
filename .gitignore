@@ -1,3 +1,5 @@
 **/target
 .vscode
-docker-compose.yml
+.history
+
+**/node_modules

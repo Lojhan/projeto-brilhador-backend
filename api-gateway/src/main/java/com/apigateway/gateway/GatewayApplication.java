@@ -29,7 +29,15 @@ public class GatewayApplication {
 						.stripPrefix(1)
 						.circuitBreaker(configConsumer -> configConsumer.setFallbackUri("forward:/fallback")))
 					.uri("http://authentication-service-brilhador")
-				).build();
+				)
+				.route("CLIENT_RELATIONSHIP", p -> p
+				.path("/client-relationship/**")
+				.filters(r -> r
+					.stripPrefix(1)
+					.circuitBreaker(configConsumer -> configConsumer.setFallbackUri("forward:/fallback")))
+				.uri("http://client-relationship-service-brilhador")
+				)
+				.build();
 	}
 
 	@RequestMapping("/fallback")
