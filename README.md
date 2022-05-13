@@ -14,7 +14,7 @@
   <h3> Relacionamento com o cliente</h3>
    <h5>Vinícius Lojhan Martinez Hernandes - 12855073</h5>
    <h5>Jorge de Oliveira Neto -RGM 12969371</h5>
-   <h5>Lucas Raulin Lunik - 12857815<h5>
+   <h5>Lucas Raulin Lunik - RGM 12857815<h5>
    <h5>Gabriel Marchiorato Oliveira - RGM 13022474</h5>
    <h5><s>Douglas Gorges - 12851469 </s> - transfered</h5>
    <h5>Igor Mateus Rodrigues de Oliveira - @imigoroliveira  - 12861324</h5>
