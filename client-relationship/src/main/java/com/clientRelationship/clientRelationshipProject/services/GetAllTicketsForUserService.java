@@ -17,7 +17,7 @@ public class GetAllTicketsForUserService {
 
     public Ticket[] getAllForUser(UUID string) throws NotFound {
         return ticketRepository
-            .findByUserId(string)
+            .findTicketsByUserId(string)
             .orElseThrow(() -> new NotFound("Ticket"));
     }
     
