@@ -102,6 +102,8 @@ services:
     volumes:
       - './financial/operacaocontabil:/app'
     working_dir: /app
+    ports:
+      - '8080:80'
     expose:
       - 80
     command: sh mvnw spring-boot:run -X
