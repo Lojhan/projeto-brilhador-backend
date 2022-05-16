@@ -74,3 +74,60 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+  strategic-systems-service-brilhador:
+    container_name: strategic-systems-services-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./strategic-systems-project:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  financial-lancamentos-contabeis-brilhador:
+    container_name: financial-lancamentos-contabeis-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './financial/lancamentos_contabeis:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  financial-operacaocontabil-brilhador:
+    container_name: financial-operacaocontabil-brilhador
+    image: openjdk:18.0.1.1-slim-buster
+    volumes:
+      - './financial/operacaocontabil:/app'
+    working_dir: /app
+    ports:
+      - '8080:80'
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  financial-patrimonial-brilhador:
+    container_name: financial-patrimonial-brilhador
+    image: openjdk:18.0.1.1-slim-buster
+    volumes:
+      - './financial/patrimonial:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  financial-plano-contas-brilhador:
+    container_name: financial-plano-contas-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './financial/plano-contas:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
