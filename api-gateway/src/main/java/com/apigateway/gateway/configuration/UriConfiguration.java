@@ -22,6 +22,7 @@ public class UriConfiguration {
 		uris.put("financial-service-operacao-contabil", "http://financial-operacaocontabil-brilhador");
 		uris.put("financial-service-patrimonial", "http://financial-patrimonial-brilhador");
 		uris.put("financial-service-plano-contas-brilhador", "http://financial-plano-contas-brilhador");
+		uris.put("supply-chain", "http://supply-chain");
 	}
 
 }
