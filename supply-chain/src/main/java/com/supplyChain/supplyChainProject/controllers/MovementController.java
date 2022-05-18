@@ -24,7 +24,7 @@ public class MovementController {
     }
 
     @GetMapping("/movement/{id}")
-    Movement buscarPorId(@PathVariable Long id){
+    Movement buscarPorId(@PathVariable UUID id){
         return repository.findById(id).get();
     }
 
@@ -33,4 +33,8 @@ public class MovementController {
         return repository.save(newMovement);
     }
 
+    @DeleteMapping("movement/{id}")
+    void delete(@PathVariable UUID id){
+        repository.deleteById(id)
+    }
 }
