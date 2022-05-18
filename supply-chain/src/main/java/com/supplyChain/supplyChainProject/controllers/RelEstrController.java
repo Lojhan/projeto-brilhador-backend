@@ -22,6 +22,6 @@ public class RelEstrController {
 
     @GetMapping("/relationship/{id}")
     RelEstr buscarPorId(@PathVariable Long id){
-        return _repository.findById(id).get();
+        return _repository.findById(id).orElse(null);
     }
 }
