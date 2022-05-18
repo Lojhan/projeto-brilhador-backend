@@ -1,6 +1,7 @@
 package com.supplyChain.supplyChainProject.models;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +11,9 @@ import javax.persistence.Id;
 public class Movement {
     @Id
     @GeneratedValue
-    private String id;
-
+    private UUID id;
+    
+    private UUID product_id;
     private String type;
     private Integer quantity;
     private Integer current_stock_quantity;
@@ -23,6 +25,14 @@ public class Movement {
         this.quantity = quantity;
         this.current_stock_quantity = current_stock_quantity;
         this.created_at = created_at;
+    }
+
+    public UUID getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(UUID product_id) {
+        this.product_id = product_id;
     }
 
     public String getId() {
