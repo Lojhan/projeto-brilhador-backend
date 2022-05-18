@@ -131,8 +131,8 @@ services:
     command: sh mvnw spring-boot:run -X
     networks:
       - brilhador
-  supply-chain:
-    container_name: supply-chain
+  supply-chain-brilhador:
+    container_name: supply-chain-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
       - './supply-chain:/app'
