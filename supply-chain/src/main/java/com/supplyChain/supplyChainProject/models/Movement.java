@@ -19,7 +19,7 @@ public class Movement {
     private Integer current_stock_quantity;
     private Date created_at;
     
-    public Movement(String id, String type, Integer quantity, Integer current_stock_quantity, Date created_at) {
+    public Movement(UUID id, String type, Integer quantity, Integer current_stock_quantity, Date created_at) {
         this.id = id;
         this.type = type;
         this.quantity = quantity;
@@ -35,10 +35,10 @@ public class Movement {
         this.product_id = product_id;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     public String getType() {
