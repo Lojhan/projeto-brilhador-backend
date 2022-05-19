@@ -2,19 +2,22 @@ package edu.up.br.projeto_dev_software.domain.domain_plano_saude;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_plano_Saude")
 public class PlanoSaude{
 
+    
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomePlano;
-    private double ValorIndividual;
-    private double ValorFamiliar;
+    private Double valorPlano;
 
-    public PlanoSaude() {
+    public PlanoSaude(){        
     }
 
     public Long getId() {
@@ -25,28 +28,19 @@ public class PlanoSaude{
         this.id = id;
     }
 
-    public String getnomePlano() {
+    public String getNomePlano() {
         return nomePlano;
     }
 
-    public void setnomePlano(String nome) {
-        this.nomePlano = nome;
+    public void setNomePlano(String nomePlano) {
+        this.nomePlano = nomePlano;
     }
 
-    public double getValorIndividual() {
-        return ValorIndividual;
+    public Double getValorPlano() {
+        return valorPlano;
     }
 
-    public void setValorIndividual(double valorIndividual) {
-        ValorIndividual = valorIndividual;
+    public void setValorPlano(Double valorPlano) {
+        this.valorPlano = valorPlano;
     }
-
-    public double getValorFamiliar() {
-        return ValorFamiliar;
-    }
-
-    public void setValorFamiliar(double valorFamiliar) {
-        ValorFamiliar = valorFamiliar;
-    }
-    
 }

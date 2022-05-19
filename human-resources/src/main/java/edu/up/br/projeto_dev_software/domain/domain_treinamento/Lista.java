@@ -2,16 +2,22 @@ package edu.up.br.projeto_dev_software.domain.domain_treinamento;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_treinamento")
 public class Lista {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeTreinamento;
     private String area;
+
+    public Lista(){
+    }
 
     // Getter e setter ID =======================================
     public Long getId() {
