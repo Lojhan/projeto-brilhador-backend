@@ -58,6 +58,7 @@ public class FuncionarioController {
     // ==============================================================
     @GetMapping("/listar")
     Iterable<Funcionario> listar() {
+        
         return repository.findAll();
     }
 

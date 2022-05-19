@@ -1,12 +1,18 @@
 package edu.up.br.projeto_dev_software.domain.domain_cadastro_funcionario;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import edu.up.br.projeto_dev_software.domain.domain_plano_saude.PlanoSaude;
 import edu.up.br.projeto_dev_software.domain.domain_treinamento.Lista;
@@ -30,14 +36,24 @@ public class Funcionario {
     private String descricao;
     private boolean trans;
 
-
+    
     @ManyToOne
     @JoinColumn(name = "id_plano_Saude")
     private PlanoSaude planoSaude;
 
-    @ManyToOne
-    @JoinColumn(name = "id_lista_Treinamento")
-    private Lista listaTreinamento; 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "listaFuncionarios")
+    private List<Lista> listaTreinamento =  new ArrayList<Lista>(); 
+
+    public List<Lista> getListaTreinamento() {
+        return listaTreinamento;
+    }
+
+    public void setListaTreinamento(List<Lista> listaTreinamento) {
+        this.listaTreinamento = listaTreinamento;
+    }
+
+
 
     //Construtor =====================================
     public Funcionario(){
@@ -47,10 +63,6 @@ public class Funcionario {
     // Setter
     public void setPlanoSaude(PlanoSaude planoSaude) {
         this.planoSaude = planoSaude;
-    }
-
-    public void setListaTreinamento(Lista listaTreinamento) {
-        this.listaTreinamento = listaTreinamento;
     }
 
     public void setId(Long id){
@@ -98,10 +110,6 @@ public class Funcionario {
     // ============================================================================
     public PlanoSaude getPlanoSaude() {
         return planoSaude;
-    }
-
-    public Lista getListaTreinamento() {
-        return listaTreinamento;
     }
 
     public long getId() {
