@@ -32,11 +32,13 @@ public class Funcionario {
     private String dataContr;
     private Double salario;
     private String status;
-
+    private String area;
     private String descricao;
     private boolean trans;
 
     
+    
+
     @ManyToOne
     @JoinColumn(name = "id_plano_Saude")
     private PlanoSaude planoSaude;
@@ -45,16 +47,10 @@ public class Funcionario {
     @ManyToMany(mappedBy = "listaFuncionarios")
     private List<Lista> listaTreinamento =  new ArrayList<Lista>(); 
 
-    public List<Lista> getListaTreinamento() {
-        return listaTreinamento;
-    }
+    
+   
 
-    public void setListaTreinamento(List<Lista> listaTreinamento) {
-        this.listaTreinamento = listaTreinamento;
-    }
-
-
-
+    
     //Construtor =====================================
     public Funcionario(){
         
@@ -101,9 +97,16 @@ public class Funcionario {
         this.salario = salario;
     }
 
-    
     public void setTrans(boolean trans) {
         this.trans = trans;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public void setListaTreinamento(List<Lista> listaTreinamento) {
+        this.listaTreinamento = listaTreinamento;
     }
 
     // Getter
@@ -150,6 +153,14 @@ public class Funcionario {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public List<Lista> getListaTreinamento() {
+        return listaTreinamento;
     }
 
 }

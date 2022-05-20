@@ -62,13 +62,6 @@ public class FuncionarioController {
         return repository.findAll();
     }
 
-    // Listar todos os funcionario com mesmo cpf //Fazer uma para treinamento
-    // buscado por função
-    // @GetMapping("/funcionario/{cpf}")
-    // ResponseEntity<List<Funcionario>> getFuncionarioCpf(@PathVariable String cpf) {
-    //     return new ResponseEntity<List<Funcionario>>(repository.findByCpf(cpf), HttpStatus.OK);
-    // }
-
     // Deletar funcionario
     @DeleteMapping("/deletar/{id}")
     void excluir(@PathVariable Long id) {
