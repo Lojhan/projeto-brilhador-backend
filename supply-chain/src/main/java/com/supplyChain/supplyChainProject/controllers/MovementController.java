@@ -1,8 +1,11 @@
 package com.supplyChain.supplyChainProject.controllers;
 
+import java.util.UUID;
+
 import com.supplyChain.supplyChainProject.models.Movement;
 import com.supplyChain.supplyChainProject.repositories.MovementRepository;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +27,7 @@ public class MovementController {
     }
 
     @GetMapping("/movement/{id}")
-    Movement buscarPorId(@PathVariable UUID id){
+    Movement buscarPorId(@PathVariable Long id){
         return repository.findById(id).get();
     }
 
@@ -34,7 +37,7 @@ public class MovementController {
     }
 
     @DeleteMapping("movement/{id}")
-    void delete(@PathVariable UUID id){
-        repository.deleteById(id)
+    void delete(@PathVariable Long id){
+        repository.deleteById(id);
     }
 }
