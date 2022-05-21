@@ -1,7 +1,5 @@
 package com.supplyChain.supplyChainProject.controllers;
 
-import java.util.UUID;
-
 import com.supplyChain.supplyChainProject.models.Movement;
 import com.supplyChain.supplyChainProject.repositories.MovementRepository;
 
