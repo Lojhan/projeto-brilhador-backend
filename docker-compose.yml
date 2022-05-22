@@ -35,7 +35,9 @@ services:
     image: openjdk:17.0.2-slim-buster
     working_dir: /app
     ports:
-      - "4000:8080"
+      - "4000:80"
+    expose:
+      - "80"
     volumes:
       - ./api-gateway:/app
     command: ./mvnw spring-boot:run -X

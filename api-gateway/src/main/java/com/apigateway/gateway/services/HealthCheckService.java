@@ -22,7 +22,7 @@ public class HealthCheckService {
     @Autowired()
     private RestTemplate restTemplate;
     
-    @Scheduled(cron = "0 0/1 * * * *")
+    @Scheduled(cron = "0/30 0/1 * * * *")
     public void run() throws Exception {
         Map<String, String> uris = new HashMap<String, String>(uriConfiguration.getUris());
         uris.forEach((k, v) -> doHealthCheck(k, v));
