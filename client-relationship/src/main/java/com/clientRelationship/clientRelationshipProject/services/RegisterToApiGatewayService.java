@@ -53,7 +53,8 @@ public class RegisterToApiGatewayService {
     }
 
     @Scheduled(cron = "0/10 0/1 * * * *")
-    public void verifyOwnExistance() {
+    public void verifyOwnExistence() {
+        // existan
         try {
             ResponseEntity<HashMap> res = this.restTemplate.getForEntity(gatewayUrl, HashMap.class);
             Boolean containsAppKey = ((Map<String, String>) res.getBody()).containsKey(appKey);
