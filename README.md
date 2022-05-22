@@ -38,6 +38,13 @@
       - brilhador
  ```
  
+ <h3>Depois, mude a porta do seu projeto adicionando a seguinte configuração</h3>
+ <p>seu-projeto/src/main/resources/application.properties</p>
+ 
+ ```
+ server.port=80
+ ```
+ 
  <h3>Após isso, é necessário incluir ao Api Gateway sua aplicação para que ela seja mapeada e acessível.</h3>
  <h2>Adicione ao arquivo a url e nome do container</h2>
  
@@ -108,8 +115,8 @@
    <h5>Carlos Roberto Pereira Neres Filho - 8813207156</h5>
 
   <h3> Sistemas estratégicos</h3>
-    <h5>Anna Cruz - 12222062</h5>
+    <h5>Anna Cruz @AnnaCzt - 12222062</h5>
     <h5>Hellen Gurgacz @hellengurgaczz - 13360051</h5>
     <h5> Julia Scheffer @juliascheffer - 13219073 </h5>
-    <h5> Sara Alves @saralves9- 13164139 </h5>
+    <h5> Sara Alves @saralves9 - 13164139 </h5>
     <h5> Rafaela Barbosa @rafaelabarb - 12196894 </h5>
