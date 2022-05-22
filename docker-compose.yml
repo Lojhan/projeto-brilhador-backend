@@ -166,8 +166,8 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
-  supply-chain:
-    container_name: supply-chain
+  supply-chain-brilhador:
+    container_name: supply-chain-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
       - './supply-chain:/app'
