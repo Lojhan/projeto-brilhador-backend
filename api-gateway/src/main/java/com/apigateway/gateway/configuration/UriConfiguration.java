@@ -30,6 +30,7 @@ public class UriConfiguration {
 		uris.put("financial-service-plano-contas-brilhador", "http://financial-plano-contas-brilhador");
 		uris.put("financial-service-plano-contas-brilhador2", "http://financial-plano-contas-brilhador2");
 		uris.put("supply-chain-brilhador", "http://supply-chain");
+		uris.put("buy-sales-brilhador", "http://buy-sales-brilhador");
 
 		gatewayRoutesRefresher.refreshRoutes();
 		uris.forEach((key, value) -> addRoute(key, key, value));
