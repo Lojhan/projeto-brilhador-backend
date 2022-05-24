@@ -6,7 +6,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Ingredient {
-
     @Id
     @GeneratedValue
     private long id;
