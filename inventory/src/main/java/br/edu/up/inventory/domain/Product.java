@@ -15,24 +15,25 @@ public class Product {
     private String sku;
 
 
-    @Column(name = "id_setor")
-    private long idSetor;
+    @Column(name = "id_warehouse")
+    private long idWarehouse;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_setor", updatable = false, insertable = false)
-    private Setor setor;
+    @JoinColumn(name="id_warehouse", updatable = false, insertable = false)
+    private Warehouse warehouse;
 
     public Product() {
 
     }
 
-    public Product(long id, double price, String description, String name, int quantity, String sku){
+    public Product(long id, double price, String description, String name, int quantity, String sku, long idWarehouse){
         this.id = id;
         this.price = price;
         this.description = description;
         this.name = name;
         this.quantity = quantity;
         this.sku = sku;
+        this.idWarehouse = idWarehouse;
     }
 
     public void updateProduct(Product product) {
@@ -41,6 +42,7 @@ public class Product {
         this.quantity = product.getQuantity();
         this.description = product.getDescription();
         this.sku = product.getSku();
+        this.idWarehouse = product.getIdWarehouse();
 
     }
 
@@ -85,12 +87,12 @@ public class Product {
     }
 
 
-    public long getIdSetor() {
-        return idSetor;
+    public long getIdWarehouse() {
+        return idWarehouse;
     }
 
-    public void setIdSetor(long idSetor) {
-        this.idSetor = idSetor;
+    public void setIdWarehouse(long idWarehouse) {
+        this.idWarehouse = idWarehouse;
     }
 
     public String getSku() {
