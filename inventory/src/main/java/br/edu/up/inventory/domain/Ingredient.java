@@ -12,14 +12,17 @@ public class Ingredient {
 
     private String name;
     private Number quantity;
+    // TODO add relationship
     private Long idMaterial;
+    // TODO add relationship
     private Long idProcess;
 
     public Ingredient() {
 
     }
 
-    public Ingredient(String name, Number quantity, Long idMaterial, Long idProcess) {
+    public Ingredient(long id, String name, Number quantity, Long idMaterial, Long idProcess) {
+        this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.idMaterial = idMaterial;
@@ -31,7 +34,6 @@ public class Ingredient {
         this.quantity = updatedIngredient.getQuantity();
         this.idMaterial = updatedIngredient.getIdMaterial();
         this.idProcess = updatedIngredient.getIdProcess();
-
     }
 
     public long getId() {
