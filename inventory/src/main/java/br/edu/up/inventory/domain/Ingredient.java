@@ -14,7 +14,7 @@ public class Ingredient {
     private Number quantity;
     private Long idMaterial;
     private Long idProcess;
-    
+
     public Ingredient() {
 
     }
@@ -26,11 +26,11 @@ public class Ingredient {
         this.idProcess = idProcess;
     }
 
-    public void updateIngredient(Ingredient uptadeIngredient) {
-        this.name = uptadeIngredient.getName();
-        this.quantity = uptadeIngredient.getQuantity();
-        this.idMaterial = uptadeIngredient.getIdMaterial();
-        this.idProcess = uptadeIngredient.getIdProcess();
+    public void updateIngredient(Ingredient updatedIngredient) {
+        this.name = updatedIngredient.getName();
+        this.quantity = updatedIngredient.getQuantity();
+        this.idMaterial = updatedIngredient.getIdMaterial();
+        this.idProcess = updatedIngredient.getIdProcess();
 
     }
 

@@ -14,12 +14,12 @@ public class Process {
     private String name;
     private String description;
 
-    private Number quantityProduced;
+    private int quantityProduced;
     public Process() {
 
     }
 
-    public Process(String name, String description, String ingredient, Number quantityProduced) {
+    public Process(String name, String description, String ingredient, int quantityProduced) {
         this.name = name;
         this.description = description;
         this.quantityProduced = quantityProduced;
@@ -55,11 +55,11 @@ public class Process {
         this.description = description;
     }
 
-    public Number getQuantityProduced() {
+    public int getQuantityProduced() {
         return quantityProduced;
     }
 
-    public void setQuantityProduced(Number quantity_produced) {
+    public void setQuantityProduced(int quantity_produced) {
         this.quantityProduced = quantityProduced;
     }
 }
