@@ -15,11 +15,13 @@ public class Process {
     private String description;
 
     private int quantityProduced;
+
     public Process() {
 
     }
 
-    public Process(String name, String description, String ingredient, int quantityProduced) {
+    public Process(long id, String name, String description, int quantityProduced) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.quantityProduced = quantityProduced;
@@ -59,7 +61,7 @@ public class Process {
         return quantityProduced;
     }
 
-    public void setQuantityProduced(int quantity_produced) {
+    public void setQuantityProduced(int quantityProduced) {
         this.quantityProduced = quantityProduced;
     }
 }
