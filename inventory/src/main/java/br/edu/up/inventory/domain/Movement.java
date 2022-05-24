@@ -11,7 +11,7 @@ public class Movement {
     @Id
     @GeneratedValue
     private long id;
-    private int totalPrice;
+    private double totalPrice;
     // TODO check if Timestamp is the right class
     private Timestamp dateTime;
     private String name;
@@ -30,9 +30,6 @@ public class Movement {
         this.id = id;
     }
 
-    public int getTotalPrice() { return totalPrice;}
-
-    public void setTotalPrice(int totalPrice) {this.totalPrice = totalPrice;}
     public void updateMovement(Movement movementChanged) {
         this.name = movementChanged.getName();
         this.nature= movementChanged.getNature();
@@ -67,4 +64,8 @@ public class Movement {
     public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
     }
+
+    public double getTotalPrice() { return totalPrice;}
+
+    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
 }

@@ -5,7 +5,7 @@ import br.edu.up.inventory.repository.ProcessRepository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/processo")
+@RequestMapping("/process")
 public class ProcessController {
 
     private final ProcessRepository repository;

@@ -10,7 +10,4 @@ public class InventoryApplication {
 		SpringApplication.run(InventoryApplication.class, args);
 	}
 
-	// TODO GERAL: conferir uso de long/Long em todas as entidades
-	// TODO GERAL: disponibilizar endpoints
-	// TODO GERAL: testar todos os endpoints via Postman
 }
