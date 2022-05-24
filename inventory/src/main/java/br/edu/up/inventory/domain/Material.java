@@ -13,12 +13,12 @@ public class Material {
     private int quantidade;
     private String unidade;
 
-    @Column(name = "id_setor")
+    @Column(name = "id_warehouse")
     private long idSetor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_setor", updatable = false, insertable = false)
-    private Setor setor;
+    @JoinColumn(name="id_warehouse", updatable = false, insertable = false)
+    private Warehouse warehouse;
 
     public Material() {
     }
