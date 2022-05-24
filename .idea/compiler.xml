@@ -15,6 +15,7 @@
         <module name="clientRelationship" />
         <module name="supplyChainProject" />
         <module name="patrimonial" />
+        <module name="inventory" />
         <module name="gateway" />
         <module name="authentication" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="authentication" options="-parameters" />
       <module name="clientRelationship" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="inventory" options="-parameters" />
       <module name="lancamentos_contabeis" options="-parameters" />
       <module name="operacaocontabil" options="-parameters" />
       <module name="patrimonial" options="-parameters" />
