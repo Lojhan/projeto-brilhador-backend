@@ -14,12 +14,12 @@ public class Produto {
     private int quantidade;
     private String unidade;
 
-    @Column(name = "id_setor")
-    private long idSetor;
+    @Column(name = "id_warehouse")
+    private long idWarehouse;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_setor", updatable = false, insertable = false)
-    private Setor setor;
+    @JoinColumn(name="id_warehouse", updatable = false, insertable = false)
+    private Warehouse warehouse;
 
     public Produto() { 
 
@@ -79,12 +79,12 @@ public class Produto {
         this.unidade = unidade;
     }
 
-    public long getIdSetor() {
-        return idSetor;
+    public long getIdWarehouse() {
+        return idWarehouse;
     }
 
-    public void setIdSetor(long idSetor) {
-        this.idSetor = idSetor;
+    public void setIdWarehouse(long idWarehouse) {
+        this.idWarehouse = idWarehouse;
     }
 }
  
