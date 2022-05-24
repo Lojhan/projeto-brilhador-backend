@@ -11,19 +11,18 @@ public class Movement {
     @Id
     @GeneratedValue
     private long id;
-
     private int totalPrice;
-
+    // TODO check if Timestamp is the right class
     private Timestamp dateTime;
     private String name;
-
+    // TODO add enum
     private int nature;
 
     public Movement() {
 
     }
 
-    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id ) {
+    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id) {
         this.name = name;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
