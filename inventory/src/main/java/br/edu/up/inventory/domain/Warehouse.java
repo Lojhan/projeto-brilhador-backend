@@ -16,7 +16,8 @@ public class Warehouse {
 
     }
 
-    public Warehouse(String description) {
+    public Warehouse(long id, String description) {
+        this.id = id;
         this.description = description;
     }
 
