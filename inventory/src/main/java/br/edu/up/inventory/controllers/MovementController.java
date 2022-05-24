@@ -15,7 +15,7 @@ public class MovementController {
     }
 
     @GetMapping()
-    Iterable<Movement> list() {
+    Iterable<Movement> findAll() {
         return repository.findAll();
     }
 
@@ -25,7 +25,7 @@ public class MovementController {
     }
 
     @PostMapping()
-    Movement include(@RequestBody Movement newMovement) {
+    Movement create(@RequestBody Movement newMovement) {
         return repository.save(newMovement);
     }
 

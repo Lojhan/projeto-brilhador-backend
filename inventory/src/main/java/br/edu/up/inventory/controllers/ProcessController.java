@@ -15,22 +15,22 @@ public class ProcessController {
     }
 
     @GetMapping()
-    Iterable<Process> listar() {
+    Iterable<Process> findAll() {
         return repository.findAll();
     }
 
     @GetMapping("/{id}")
-    Process buscarPorId(@PathVariable Long id) {
+    Process findById(@PathVariable Long id) {
         return repository.findById(id).get();
     }
 
     @PostMapping()
-    Process incluir(@RequestBody Process novoProcess) {
+    Process create(@RequestBody Process novoProcess) {
         return repository.save(novoProcess);
     }
 
     @PutMapping("/{id}")
-    Process atualizar(@RequestBody Process processAlterado, @PathVariable Long id) {
+    Process update(@RequestBody Process processAlterado, @PathVariable Long id) {
         return repository.findById(id)
                 .map(process -> {
                     // id encontrado
@@ -45,7 +45,7 @@ public class ProcessController {
     }
 
     @DeleteMapping("/{id}")
-    void excluir(@PathVariable Long id) {
+    void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

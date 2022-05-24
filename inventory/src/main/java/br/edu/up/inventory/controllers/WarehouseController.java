@@ -15,7 +15,7 @@ public class WarehouseController {
     }
 
     @GetMapping()
-    Iterable<Warehouse> list() {
+    Iterable<Warehouse> findAll() {
         return repository.findAll();
     }
 
@@ -25,7 +25,7 @@ public class WarehouseController {
     }
 
     @PostMapping()
-    Warehouse include(@RequestBody Warehouse newWarehouse) {
+    Warehouse create(@RequestBody Warehouse newWarehouse) {
         return repository.save(newWarehouse);
     }
 

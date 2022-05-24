@@ -15,22 +15,22 @@ public class ProductController {
     }
 
     @GetMapping()
-    Iterable<Product> listar() {
+    Iterable<Product> findAll() {
         return repository.findAll();
     }
 
     @GetMapping("/{id}")
-    Product buscarPorId(@PathVariable Long id) {
+    Product findById(@PathVariable Long id) {
         return repository.findById(id).get();
     }
 
     @PostMapping()
-    Product incluir(@RequestBody Product novoProduct) {
+    Product create(@RequestBody Product novoProduct) {
         return repository.save(novoProduct);
     }
 
     @PutMapping("/{id}")
-    Product atualizar(@RequestBody Product productAlterado, @PathVariable Long id) {
+    Product update(@RequestBody Product productAlterado, @PathVariable Long id) {
         return repository.findById(id)
                 .map(Product -> {
                     // id encontrado
@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    void excluir(@PathVariable Long id) {
+    void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
