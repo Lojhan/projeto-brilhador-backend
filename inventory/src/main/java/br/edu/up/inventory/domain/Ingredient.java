@@ -14,8 +14,7 @@ public class Ingredient {
     private Number quantity;
     private Long idMaterial;
     private Long idProcess;
-
-    ;
+    
     public Ingredient() {
 
     }
