@@ -43,7 +43,6 @@ public class Product {
         this.description = product.getDescription();
         this.sku = product.getSku();
         this.idWarehouse = product.getIdWarehouse();
-
     }
 
     public long getId() {
