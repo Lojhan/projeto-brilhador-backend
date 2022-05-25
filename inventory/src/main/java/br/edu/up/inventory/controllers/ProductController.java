@@ -4,6 +4,11 @@ import br.edu.up.inventory.domain.Product;
 import br.edu.up.inventory.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -15,8 +20,17 @@ public class ProductController {
     }
 
     @GetMapping()
-    Iterable<Product> findAll() {
-        return repository.findAll();
+    List<Product> findAll(@RequestParam(value = "filter", required = false) String filter) {
+        Iterable<Product> iterable = repository.findAll();
+        Stream<Product> productStream = StreamSupport.stream(iterable.spliterator(), false);
+
+        if (filter != null && filter.equalsIgnoreCase("available")) {
+            return productStream
+                    .filter(product -> product.getQuantity() > 0)
+                    .collect(Collectors.toList());
+        }
+
+        return productStream.collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
