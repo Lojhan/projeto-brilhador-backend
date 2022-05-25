@@ -13,9 +13,8 @@ public class Movement {
     private Timestamp dateTime;
     private String name;
 
-    // TODO todo no java
     @Enumerated(EnumType.ORDINAL)
-    private int nature;
+    private MovementNature nature;
 
     @Column(name = "id_product")
     private long idProduct;
@@ -28,7 +27,7 @@ public class Movement {
 
     }
 
-    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id, long idProduct) {
+    public Movement(String name, int totalPrice, Timestamp dateTime, MovementNature nature, long id, long idProduct) {
         this.name = name;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
@@ -61,11 +60,11 @@ public class Movement {
         this.name = name;
     }
 
-    public int getNature() {
+    public MovementNature getNature() {
         return nature;
     }
 
-    public void setNature(int nature) {
+    public void setNature(MovementNature nature) {
         this.nature = nature;
     }
 
