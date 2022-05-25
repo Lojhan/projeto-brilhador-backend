@@ -35,6 +35,11 @@ public class Ingredient {
         this.idProcess = idProcess;
     }
 
+    public Ingredient(int quantity, long idProduct) {
+        this.quantity = quantity;
+        this.idProduct = idProduct;
+    }
+
     public void updateIngredient(Ingredient updatedIngredient) {
         this.quantity = updatedIngredient.getQuantity();
         this.idProduct = updatedIngredient.getIdProduct();
@@ -49,11 +54,11 @@ public class Ingredient {
         this.id = id;
     }
 
-    public Number getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Number quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

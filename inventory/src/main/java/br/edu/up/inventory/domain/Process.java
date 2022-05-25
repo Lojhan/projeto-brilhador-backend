@@ -21,7 +21,7 @@ public class Process {
     @JoinColumn(name="id_product", updatable = false, insertable = false)
     private Product product;
 
-    @OneToMany(mappedBy="process")
+    @OneToMany(mappedBy="process", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ingredient> ingredients;
 
     public Process() {
