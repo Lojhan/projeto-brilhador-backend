@@ -79,7 +79,7 @@ public class Process {
         return idProduct;
     }
 
-    public void setIdProduct(long id) {
+    public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
     }
 }
