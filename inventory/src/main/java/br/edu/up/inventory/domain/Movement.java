@@ -13,24 +13,28 @@ public class Movement {
     private Timestamp dateTime;
     private String name;
 
+    // TODO todo no java
     @Enumerated(EnumType.ORDINAL)
     private int nature;
 
-    @ManyToOne
-    @JoinColumn(name = "idProduct")
+    @Column(name = "id_product")
+    private long idProduct;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_product", updatable = false, insertable = false)
     private Product product;
 
     public Movement() {
 
     }
 
-    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id, Product product) {
+    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id, long idProduct) {
         this.name = name;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
         this.nature = nature;
         this.id = id;
-        this.product = product;
+        this.idProduct = idProduct;
     }
 
     public void updateMovement(Movement movementChanged) {
@@ -38,7 +42,7 @@ public class Movement {
         this.nature = movementChanged.getNature();
         this.dateTime = movementChanged.getDateTime();
         this.totalPrice = movementChanged.getTotalPrice();
-        this.product = movementChanged.getProduct();
+        this.idProduct = movementChanged.getIdProduct();
     }
 
     public long getId() {
@@ -81,11 +85,11 @@ public class Movement {
         this.totalPrice = totalPrice;
     }
 
-    public Product getProduct() {
-        return product;
+    public long getIdProduct() {
+        return idProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setIdProduct(long idProduct) {
+        this.idProduct = idProduct;
     }
 }

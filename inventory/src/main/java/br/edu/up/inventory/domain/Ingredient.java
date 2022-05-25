@@ -7,35 +7,38 @@ public class Ingredient {
     @Id
     @GeneratedValue
     private long id;
+    private int quantity;
 
-    private String name;
-    private Number quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "idProduct")
+    @Column(name = "id_product")
+    private long idProduct;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_product", updatable = false, insertable = false)
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "idProcess")
+    @Column(name = "id_process")
+    private long idProcess;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_process", updatable = false, insertable = false)
     private Process process;
 
     public Ingredient() {
 
     }
 
-    public Ingredient(long id, String name, Number quantity, Product product, Process process) {
+    public Ingredient(long id, int quantity, long idProduct, long idProcess) {
         this.id = id;
-        this.name = name;
         this.quantity = quantity;
-        this.product = product;
-        this.process = process;
+        this.idProduct = idProduct;
+        this.idProcess = idProcess;
     }
 
     public void updateIngredient(Ingredient updatedIngredient) {
-        this.name = updatedIngredient.getName();
         this.quantity = updatedIngredient.getQuantity();
-        this.product = updatedIngredient.getProduct();
-        this.process = updatedIngredient.getProcess();
+        this.idProduct = updatedIngredient.getIdProduct();
+        this.idProcess = updatedIngredient.getIdProcess();
     }
 
     public long getId() {
@@ -46,14 +49,6 @@ public class Ingredient {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Number getQuantity() {
         return quantity;
     }
@@ -62,19 +57,19 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-    public Process getProcess() {
-        return process;
+    public long getIdProcess() {
+        return idProcess;
     }
 
-    public void setProcess(Process process) {
-        this.process = process;
+    public void setIdProcess(long idProcess) {
+        this.idProcess = idProcess;
     }
 
-    public Product getProduct() {
-        return product;
+    public long getIdProduct() {
+        return idProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setIdProduct(long idProduct) {
+        this.idProduct = idProduct;
     }
 }
