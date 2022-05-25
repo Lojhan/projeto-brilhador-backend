@@ -1,8 +1,6 @@
 package br.edu.up.inventory.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -12,29 +10,35 @@ public class Movement {
     @GeneratedValue
     private long id;
     private double totalPrice;
-    // TODO check if Timestamp is the right class
     private Timestamp dateTime;
     private String name;
-    // TODO add enum
+
+    @Enumerated(EnumType.ORDINAL)
     private int nature;
+
+    @ManyToOne
+    @JoinColumn(name = "idProduct")
+    private Product product;
 
     public Movement() {
 
     }
 
-    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id) {
+    public Movement(String name, int totalPrice, Timestamp dateTime, int nature, long id, Product product) {
         this.name = name;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
         this.nature = nature;
         this.id = id;
+        this.product = product;
     }
 
     public void updateMovement(Movement movementChanged) {
         this.name = movementChanged.getName();
-        this.nature= movementChanged.getNature();
-        this.dateTime= movementChanged.getDateTime();
-        this.totalPrice= movementChanged.getTotalPrice();
+        this.nature = movementChanged.getNature();
+        this.dateTime = movementChanged.getDateTime();
+        this.totalPrice = movementChanged.getTotalPrice();
+        this.product = movementChanged.getProduct();
     }
 
     public long getId() {
@@ -53,9 +57,13 @@ public class Movement {
         this.name = name;
     }
 
-    public int getNature() {return nature; }
+    public int getNature() {
+        return nature;
+    }
 
-    public void setNature(int nature) {this.nature = nature;}
+    public void setNature(int nature) {
+        this.nature = nature;
+    }
 
     public Timestamp getDateTime() {
         return dateTime;
@@ -65,7 +73,19 @@ public class Movement {
         this.dateTime = dateTime;
     }
 
-    public double getTotalPrice() { return totalPrice;}
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 
-    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

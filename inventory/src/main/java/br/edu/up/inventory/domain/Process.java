@@ -1,36 +1,46 @@
 package br.edu.up.inventory.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Process {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String name;
     private String description;
-
     private int quantityProduced;
+
+    @Column(name = "id_product")
+    private long idProduct;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_product", updatable = false, insertable = false)
+    private Product product;
+
+    @OneToMany(mappedBy="process")
+    private List<Ingredient> ingredients;
 
     public Process() {
 
     }
 
-    public Process(long id, String name, String description, int quantityProduced) {
+    public Process(long id, String name, String description, int quantityProduced, long idProduct) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.quantityProduced = quantityProduced;
+        this.idProduct = idProduct;
     }
 
     public void updateProcess(Process updatedProcess) {
         this.name = updatedProcess.getName();
         this.description = updatedProcess.getDescription();
         this.quantityProduced = updatedProcess.getQuantityProduced();
+        this.idProduct = updatedProcess.getIdProduct();
     }
 
     public long getId() {
@@ -63,5 +73,13 @@ public class Process {
 
     public void setQuantityProduced(int quantityProduced) {
         this.quantityProduced = quantityProduced;
+    }
+
+    public long getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(long id) {
+        this.idProduct = idProduct;
     }
 }

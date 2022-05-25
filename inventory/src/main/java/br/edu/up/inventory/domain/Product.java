@@ -14,7 +14,6 @@ public class Product {
     private int quantity;
     private String sku;
 
-
     @Column(name = "id_warehouse")
     private long idWarehouse;
 

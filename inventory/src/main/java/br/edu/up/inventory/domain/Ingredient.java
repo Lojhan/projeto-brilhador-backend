@@ -1,8 +1,6 @@
 package br.edu.up.inventory.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Ingredient {
@@ -12,28 +10,32 @@ public class Ingredient {
 
     private String name;
     private Number quantity;
-    // TODO add relationship
-    private Long idProduct;
-    // TODO add relationship
-    private Long idProcess;
+
+    @ManyToOne
+    @JoinColumn(name = "idProduct")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "idProcess")
+    private Process process;
 
     public Ingredient() {
 
     }
 
-    public Ingredient(long id, String name, Number quantity, Long idProduct, Long idProcess) {
+    public Ingredient(long id, String name, Number quantity, Product product, Process process) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
-        this.idProduct = idProduct;
-        this.idProcess = idProcess;
+        this.product = product;
+        this.process = process;
     }
 
     public void updateIngredient(Ingredient updatedIngredient) {
         this.name = updatedIngredient.getName();
         this.quantity = updatedIngredient.getQuantity();
-        this.idProduct = updatedIngredient.getIdProduct();
-        this.idProcess = updatedIngredient.getIdProcess();
+        this.product = updatedIngredient.getProduct();
+        this.process = updatedIngredient.getProcess();
     }
 
     public long getId() {
@@ -60,19 +62,19 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-    public Long getIdProcess() {
-        return idProcess;
+    public Process getProcess() {
+        return process;
     }
 
-    public void setIdProcess(Long IdProcess) {
-        this.idProcess = IdProcess;
+    public void setProcess(Process process) {
+        this.process = process;
     }
 
-    public Long getIdProduct() {
-        return idProduct;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setIdProduct(Long IdProduct) {
-        this.idProduct = IdProduct;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
