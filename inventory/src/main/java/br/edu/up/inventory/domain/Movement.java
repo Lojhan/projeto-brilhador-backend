@@ -12,6 +12,7 @@ public class Movement {
     private double totalPrice;
     private Timestamp dateTime;
     private String name;
+    private int quantity;
 
     @Enumerated(EnumType.ORDINAL)
     private MovementNature nature;
@@ -90,5 +91,13 @@ public class Movement {
 
     public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
