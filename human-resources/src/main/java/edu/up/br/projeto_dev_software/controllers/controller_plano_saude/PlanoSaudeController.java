@@ -35,7 +35,6 @@ public class PlanoSaudeController {
         return repository.save(novoPlano);
     }
 
-
     @PutMapping("/atualizar/{id}")
     PlanoSaude atualizar(@RequestBody PlanoSaude planoAlterado, @PathVariable Long id){
         return repository.findById(id)
@@ -49,10 +48,9 @@ public class PlanoSaudeController {
             return repository.save(planoAlterado);
         });    
     }
-
+    
     @DeleteMapping("/deletar/{id}")
     void excluir(@PathVariable Long id){
         repository.deleteById(id);
-    }
-    
+    }    
 }
