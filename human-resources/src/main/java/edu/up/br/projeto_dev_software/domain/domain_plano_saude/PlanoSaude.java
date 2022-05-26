@@ -6,11 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "tb_plano_Saude")
 public class PlanoSaude{
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
