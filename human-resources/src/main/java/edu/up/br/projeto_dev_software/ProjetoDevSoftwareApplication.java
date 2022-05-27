@@ -1,9 +1,12 @@
 package edu.up.br.projeto_dev_software;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.up.br.projeto_dev_software.services.RegisterToApiGatewayService;
 
 
 @RestController
@@ -14,9 +17,9 @@ public class ProjetoDevSoftwareApplication {
 		SpringApplication.run(ProjetoDevSoftwareApplication.class, args);
 	}
 	@Autowired
-	FuncionarioServices registerToApiGatewayService; 
+	RegisterToApiGatewayService registerToApiGatewayService; 
 	
-	@RequestMapping("")
+	@RequestMapping("/health-check")
 	public String Home()
 	{
 	return "http://localhost:8080/ -> Online";

@@ -21,21 +21,21 @@ import org.springframework.web.client.RestClientResponseException;
 
 
 @Service
-public class FuncionarioServices {
+public class RegisterToApiGatewayService {
 
     String gatewayUrl = "http://brilhador-api-gateway/uris";
-    String appKey = "recursosHumanos";
-    String appUrl = "http://recursosHumanos-service-brilhador";
+    String appKey = "human-resources";
+    String appUrl = "http://human-resources-brilhador";
 
     private RestTemplate restTemplate;
 
-    public void RegisterToApiGatewayService(RestTemplate restTemplate) {
+    public RegisterToApiGatewayService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         register();
     }
 
     public void register() {
-        String url = gatewayUrl + "/recursosHumanos";
+        String url = gatewayUrl + "/add";
         System.out.println("--------------------->   Registrado no gateway: " + url);
         try {
             HttpHeaders headers = new HttpHeaders();
