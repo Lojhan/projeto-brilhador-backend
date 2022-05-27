@@ -58,7 +58,6 @@ public class MovementController {
                 newQuantity
         );
 
-        // create a client
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
