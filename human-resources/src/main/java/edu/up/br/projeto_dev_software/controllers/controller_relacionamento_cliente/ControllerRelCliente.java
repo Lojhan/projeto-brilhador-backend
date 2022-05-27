@@ -14,6 +14,10 @@ import edu.up.br.projeto_dev_software.domain.domain_cadastro_funcionario.Funcion
 import edu.up.br.projeto_dev_software.domain.domain_relacionamento_cliente.RelCliente;
 import edu.up.br.projeto_dev_software.repository.FuncionarioRepository;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
+@Tag(name = "relCliente")
 @RestController
 @RequestMapping("/relCliente")
 public class ControllerRelCliente {

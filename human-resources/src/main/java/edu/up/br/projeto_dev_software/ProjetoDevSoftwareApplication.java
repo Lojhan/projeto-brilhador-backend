@@ -13,6 +13,9 @@ public class ProjetoDevSoftwareApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetoDevSoftwareApplication.class, args);
 	}
+	@Autowired
+	FuncionarioServices registerToApiGatewayService; 
+	
 	@RequestMapping("")
 	public String Home()
 	{

@@ -14,8 +14,13 @@ import edu.up.br.projeto_dev_software.domain.domain_cadastro_funcionario.Funcion
 import edu.up.br.projeto_dev_software.domain.domain_treinamento.Lista;
 import edu.up.br.projeto_dev_software.domain.domain_treinamento.TreinamentoFuncionario;
 import edu.up.br.projeto_dev_software.repository.FuncionarioRepository;
-import edu.up.br.projeto_dev_software.repository.ListaRepository;;
+import edu.up.br.projeto_dev_software.repository.ListaRepository;
 
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
+@Tag(name = "treinamento")
 @RestController
 @RequestMapping("/treinamento")
 public class ListaController {

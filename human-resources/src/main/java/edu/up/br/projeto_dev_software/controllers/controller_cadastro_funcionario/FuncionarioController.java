@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.up.br.projeto_dev_software.domain.domain_cadastro_funcionario.Funcionario;
 import edu.up.br.projeto_dev_software.repository.FuncionarioRepository;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
+@Tag(name = "Funcionario")
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionarioController {
