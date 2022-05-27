@@ -200,3 +200,19 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
+  inventory:
+    container_name: inventory
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './inventory:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
