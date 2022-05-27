@@ -1,2 +1,5 @@
 **/target
 .vscode
+.history
+
+**/node_modules

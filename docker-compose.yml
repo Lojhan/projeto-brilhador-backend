@@ -1,5 +1,4 @@
 version: "3.9"
-
 networks:
   brilhador:
     driver: bridge
@@ -36,7 +35,9 @@ services:
     image: openjdk:17.0.2-slim-buster
     working_dir: /app
     ports:
-      - "4000:8080"
+      - "4000:80"
+    expose:
+      - "80"
     volumes:
       - ./api-gateway:/app
     command: ./mvnw spring-boot:run -X
@@ -53,3 +54,149 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  client-relationship-service-brilhador:
+    container_name: client-relationship-service-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./client-relationship:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  mail-service-brilhador:
+    container_name: mail-services-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./mail:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  strategic-systems-service-brilhador:
+    container_name: strategic-systems-services-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - ./strategic-systems-project:/app
+    working_dir: /app
+    expose:
+      - 80
+    command: ./mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  financial-lancamentos-contabeis-brilhador:
+    container_name: financial-lancamentos-contabeis-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './financial/lancamentos_contabeis:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+  financial-operacaocontabil-brilhador:
+    container_name: financial-operacaocontabil-brilhador
+    image: openjdk:18.0.1.1-slim-buster
+    volumes:
+      - './financial/operacaocontabil:/app'
+    working_dir: /app
+    ports:
+      - '8080:80'
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  financial-patrimonial-brilhador:
+    container_name: financial-patrimonial-brilhador
+    image: openjdk:18.0.1.1-slim-buster
+    volumes:
+      - './financial/patrimonial:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  financial-plano-contas-brilhador:
+    container_name: financial-plano-contas-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './financial/plano-contas:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  supply-chain-brilhador:
+    container_name: supply-chain-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './supply-chain:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  buy-sales-brilhador:
+    container_name: buy-sales-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './buy-sales:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
