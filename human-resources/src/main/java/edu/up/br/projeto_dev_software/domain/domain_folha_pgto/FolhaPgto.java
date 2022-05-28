@@ -8,7 +8,7 @@ public class FolhaPgto {
     private Double descontoPlanoSaude;
     private Double descontoTrans;
     private Double valorPagar;
-
+     // efetuado
     public Double getValorPagar() {
         return valorPagar;
     }
