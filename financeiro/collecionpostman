@@ -1,0 +1,87 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Financeiro-Brilhador",
+		"_postman_id": "dda594e1-fba3-4b4c-9c59-4c123bc78a3f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lista Pagamentos",
+			"request": {
+				"url": "http://localhost:3000/financeiro/listapagamentos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fauramento mes",
+			"request": {
+				"url": "http://localhost:3000/financeiro/faturamentomes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7ImZlYXR1cmUiOiJGYXR1cmFtZW50byIsImV4cGlyZXNJbiI6ODY0MDB9LCJpYXQiOjE2NTM4NzI0OTAsImV4cCI6MTY1Mzk1ODg5MH0.nYo2LwBViuGI8DoGX_5bXaQZwp13M9uFfKTYZlR7oTA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"mes\": 5\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"url": "http://localhost:3000/financeiro/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"dsf2sd56f5ds1f56sd1f65sd1df65sd5f5ssdf65\",\n\t\"credential\": \"dsa551fd5sfd5asds56fsdsd548dsgd5f\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fauramento ano",
+			"request": {
+				"url": "http://localhost:3000/financeiro/faturamentoano",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ano\": 2022\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
