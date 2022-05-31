@@ -38,10 +38,9 @@ public class Product {
     public void updateProduct(Product product) {
         this.price = product.getPrice();
         this.name = product.getName();
-        this.quantity = product.getQuantity();
         this.description = product.getDescription();
         this.sku = product.getSku();
-        this.idWarehouse = product.getIdWarehouse();
+        // quantity and idWarehouse should only be modified when creating a Movement
     }
 
     public long getId() {
