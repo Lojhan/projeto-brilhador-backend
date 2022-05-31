@@ -40,7 +40,8 @@ public class Product {
         this.name = product.getName();
         this.description = product.getDescription();
         this.sku = product.getSku();
-        // quantity and idWarehouse should only be modified when creating a Movement
+        this.idWarehouse = product.getIdWarehouse();
+        // quantity should only be modified when creating a Movement
     }
 
     public long getId() {
