@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UriConfiguration {
-	private Map<String, String> uris = new HashMap<>(); 
+	private Map<String, String> uris = new HashMap<>();
 	GatewayRoutesRefresher gatewayRoutesRefresher;
 
 	RefreshableRoutesLocator refreshableRoutesLocator;
@@ -31,6 +31,7 @@ public class UriConfiguration {
 		uris.put("financial-service-plano-contas-brilhador2", "http://financial-plano-contas-brilhador2");
 		uris.put("supply-chain-brilhador", "http://supply-chain");
 		uris.put("buy-sales-brilhador", "http://buy-sales-brilhador");
+		uris.put("inventory", "http://inventory-brilhador");
 
 		gatewayRoutesRefresher.refreshRoutes();
 		uris.forEach((key, value) -> addRoute(key, key, value));

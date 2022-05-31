@@ -81,19 +81,21 @@
    <h5> Aluno - RGM </h5>
 
   <h3> Estoque e produção</h3>
-   <h5>Lucas Volkmann - ???</h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-
+   <h5>Lucas Volkmann - 13375890 </h5>
+   <h5>Milena Rodrigues Milicio - RGM 13335545</h5>
+   <h5>Aramis Chang Chain - RGM 8813440250</h5>
+   <h5>Gabriel Branco de Azevedo - RGM 13322737</h5>
+   <h5>Luiz Felipe A. Oliveira - RGM 13216082</h5>
+  
   <h3>  Recursos humanos</h3>
    <h5>Pedro Kappes - 12904937</h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-   <h5> Aluno - RGM </h5>
-
+   <h5>Eliane - 13313851</h5>
+   <h5>Maicon Businari - 13359444</h5>
+   <h5>Guilherme Ghisi - 12564621 </h5>
+   <h5>Matheus Zalamena e Souza - 12948128 </h5>
+   <h5>Naiara de Mello Martins - 11934603 </h5>
+   <h5>André da Silva Rocco - 12235296 </h5>
+  
   <h3> Financeiro, contábil e ativos</h3>
    <h5>Rafael Romig - 13180894</h5>
    <h5>Samuel Diel - 13177770 </h5>

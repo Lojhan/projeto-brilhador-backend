@@ -3,6 +3,7 @@ package com.supplyChain.supplyChainProject.controllers;
 import com.supplyChain.supplyChainProject.models.Movement;
 import com.supplyChain.supplyChainProject.repositories.MovementRepository;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,4 +34,8 @@ public class MovementController {
         return repository.save(newMovement);
     }
 
+    @DeleteMapping("movement/{id}")
+    void delete(@PathVariable Long id){
+        repository.deleteById(id);
+    }
 }
