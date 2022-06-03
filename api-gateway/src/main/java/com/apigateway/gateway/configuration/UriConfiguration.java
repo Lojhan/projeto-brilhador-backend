@@ -29,7 +29,7 @@ public class UriConfiguration {
 		uris.put("financial-service-patrimonial", "http://financial-patrimonial-brilhador");
 		uris.put("financial-service-plano-contas-brilhador", "http://financial-plano-contas-brilhador");
 		uris.put("financial-service-plano-contas-brilhador2", "http://financial-plano-contas-brilhador2");
-		uris.put("supply-chain-brilhador", "http://supply-chain");
+		uris.put("supply-chain-brilhador", "http://supply-chain-brilhador");
 		uris.put("inventory", "http://inventory-brilhador");
 
 		gatewayRoutesRefresher.refreshRoutes();

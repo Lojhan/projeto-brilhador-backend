@@ -200,8 +200,8 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
-  inventory:
-    container_name: inventory
+  inventory-brilhador:
+    container_name: inventory-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
       - './inventory:/app'

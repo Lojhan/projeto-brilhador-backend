@@ -1,4 +1,4 @@
-package com.clientRelationship.clientRelationshipProject.configuration.messaging;
+package com.supplyChain.supplyChainProject.configuration.messaging;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,23 +9,13 @@ import org.springframework.context.annotation.Configuration;
 public class SenderConfig {
 
     
-    @Value("${queue.name.userTicket}")
-    private String message;
-
     @Value("${queue.name.userTicketEmplyeeTask}")
-    private String userTicketEmplyeeTask;
-
-    @Bean(name = "userTicketEmployeeTaskQueue")
-    public Queue userTicketEmployeeTaskQueue() {
-        return new Queue(userTicketEmplyeeTask, true);
-    }
+    private String message;
 
     @Bean(name = "userTicketsQueue")
     public Queue userTicketsQueue() {
         return new Queue(message, true);
     }
-
-    
 
     // @Bean(name = "anotherQueue")
     // public Queue anotherQueue() {
