@@ -6,9 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.GenerationType;
 
 @Entity
-public class RelEstr {
+public class EmployeeTask {
 
-    public RelEstr(Long id, String task, String description, String dependOnThirdParty, boolean status) {
+    public EmployeeTask() {}
+
+    public EmployeeTask(Long id, String task, String description, String dependOnThirdParty, boolean status) {
         Id = id;
         this.task = task;
         this.description = description;
@@ -31,8 +33,6 @@ public class RelEstr {
     public void setOurId(String ourId) {
         this.ourId = ourId;
     }
-
-
 
     public Long getId() {
         return Id;
