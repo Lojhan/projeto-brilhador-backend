@@ -3,18 +3,41 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="operacaocontabil" />
+        <module name="plano-contas" />
+        <module name="pessoa" />
+        <module name="sender" />
+        <module name="lancamentos_contabeis" />
+        <module name="clientRelationship" />
+        <module name="supplyChainProject" />
+        <module name="patrimonial" />
+        <module name="inventory" />
+        <module name="gateway" />
+        <module name="authentication" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="authentication" target="17" />
-      <module name="clientRelationship" target="17" />
-      <module name="gateway" target="17" />
-      <module name="lancamentos_contabeis" target="11" />
-      <module name="operacaocontabil" target="17" />
-      <module name="patrimonial" target="17" />
-      <module name="pessoa" target="11" />
-      <module name="plano-contas" target="8" />
-      <module name="sender" target="17" />
-      <module name="supplyChainProject" target="11" />
+      <module name="supply-chain" target="11" />
+      <module name="supply-chain-project" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authentication" options="-parameters" />
+      <module name="clientRelationship" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="inventory" options="-parameters" />
+      <module name="lancamentos_contabeis" options="-parameters" />
+      <module name="operacaocontabil" options="-parameters" />
+      <module name="patrimonial" options="-parameters" />
+      <module name="pessoa" options="-parameters" />
+      <module name="plano-contas" options="-parameters" />
+      <module name="sender" options="-parameters" />
+      <module name="supplyChainProject" options="-parameters" />
+    </option>
   </component>
 </project>
