@@ -82,4 +82,13 @@ public class Process {
     public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
     }
+
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }

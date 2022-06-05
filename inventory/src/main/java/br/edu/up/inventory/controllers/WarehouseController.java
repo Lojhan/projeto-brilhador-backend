@@ -12,6 +12,9 @@ public class WarehouseController {
 
     WarehouseController(WarehouseRepository repository) {
         this.repository = repository;
+        // default warehouse, used by new products that haven't had any movements
+        // always set to full so that products can only be moved here manually and not through movements
+        this.create(new Warehouse(1, "Not allocated", true));
     }
 
     @GetMapping()

@@ -11,18 +11,21 @@ public class Warehouse {
     @GeneratedValue
     private long id;
     private String description;
+    private boolean isFull;
 
     public Warehouse() {
 
     }
 
-    public Warehouse(long id, String description) {
+    public Warehouse(long id, String description, boolean isFull) {
         this.id = id;
         this.description = description;
+        this.isFull = isFull;
     }
 
     public void updateWarehouse(Warehouse warehouseChanged) {
         this.description = warehouseChanged.getDescription();
+        this.isFull = warehouseChanged.getIsFull();
     }
 
     public long getId() {
@@ -41,4 +44,11 @@ public class Warehouse {
         this.description = description;
     }
 
+    public boolean getIsFull() {
+        return isFull;
+    }
+
+    public void setIsFull(boolean isFull) {
+        this.isFull = isFull;
+    }
 }
