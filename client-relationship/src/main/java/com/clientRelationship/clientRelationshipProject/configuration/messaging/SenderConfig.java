@@ -12,10 +12,20 @@ public class SenderConfig {
     @Value("${queue.name.userTicket}")
     private String message;
 
+    @Value("${queue.name.userTicketEmplyeeTask}")
+    private String userTicketEmplyeeTask;
+
+    @Bean(name = "userTicketEmployeeTaskQueue")
+    public Queue userTicketEmployeeTaskQueue() {
+        return new Queue(userTicketEmplyeeTask, true);
+    }
+
     @Bean(name = "userTicketsQueue")
     public Queue userTicketsQueue() {
         return new Queue(message, true);
     }
+
+    
 
     // @Bean(name = "anotherQueue")
     // public Queue anotherQueue() {

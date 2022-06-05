@@ -35,7 +35,9 @@ services:
     image: openjdk:17.0.2-slim-buster
     working_dir: /app
     ports:
-      - "4000:8080"
+      - "4000:80"
+    expose:
+      - "80"
     volumes:
       - ./api-gateway:/app
     command: ./mvnw spring-boot:run -X
@@ -52,6 +54,11 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   client-relationship-service-brilhador:
     container_name: client-relationship-service-brilhador
     image: openjdk:17.0.2-slim-buster
@@ -63,6 +70,11 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   mail-service-brilhador:
     container_name: mail-services-brilhador
     image: openjdk:17.0.2-slim-buster
@@ -74,6 +86,11 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   strategic-systems-service-brilhador:
     container_name: strategic-systems-services-brilhador
     image: openjdk:17.0.2-slim-buster
@@ -85,6 +102,11 @@ services:
     command: ./mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   financial-lancamentos-contabeis-brilhador:
     container_name: financial-lancamentos-contabeis-brilhador
     image: openjdk:11.0.15-slim-buster
@@ -109,6 +131,11 @@ services:
     command: sh mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   financial-patrimonial-brilhador:
     container_name: financial-patrimonial-brilhador
     image: openjdk:18.0.1.1-slim-buster
@@ -120,6 +147,11 @@ services:
     command: sh mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   financial-plano-contas-brilhador:
     container_name: financial-plano-contas-brilhador
     image: openjdk:11.0.15-slim-buster
@@ -131,8 +163,13 @@ services:
     command: sh mvnw spring-boot:run -X
     networks:
       - brilhador
-  supply-chain:
-    container_name: supply-chain
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  supply-chain-brilhador:
+    container_name: supply-chain-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
       - './supply-chain:/app'
@@ -142,3 +179,40 @@ services:
     command: sh mvnw spring-boot:run -X
     networks:
       - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  human-resources-brilhador:
+    container_name: human-resources-brilhador
+    image: openjdk:17.0.2-slim-buster
+    volumes:
+      - './human-resources:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  inventory-brilhador:
+    container_name: inventory-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './inventory:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
