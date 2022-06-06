@@ -16,14 +16,13 @@ public class EmployeeTask {
         this.description = description;
         this.dependOnThirdParty = dependOnThirdParty;
         this.status = status;
-        this.ourId = "@gestaodecadeiasup";
     }
 
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long Id;
     private String task;
     private String description;
     private String dependOnThirdParty;
-    private String ourId;
+    private String ourId = "@gestaocadeiasup";
     private boolean status;
 
     public String getOurId() {
@@ -31,7 +30,7 @@ public class EmployeeTask {
     }
 
     public void setOurId(String ourId) {
-        this.ourId = ourId;
+        this.ourId = "@gestaodecadeiasup";
     }
 
     public Long getId() {
