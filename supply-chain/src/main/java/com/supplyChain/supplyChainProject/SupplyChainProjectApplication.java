@@ -26,6 +26,11 @@ public class SupplyChainProjectApplication {
 		return "It is working";
 	}
 
+	@RequestMapping("/home")
+	public String hello() {
+		return "Hello buddy!";
+	}
+
 	@RequestMapping("/health-check")
 	public String healthCheck(){
 		return "It is working";
