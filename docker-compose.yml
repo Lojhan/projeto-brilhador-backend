@@ -168,11 +168,27 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
-  supply-chain-brilhador:
-    container_name: supply-chain-brilhador
+  supply-chain-movement-brilhador:
+    container_name: supply-chain-movement-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
-      - './supply-chain:/app'
+      - './supply-chain/supply-chain-movement:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+  supply-chain-brilhador:
+    container_name: supply-chain-task-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './supply-chain/supply-chain-task:/app'
     working_dir: /app
     expose:
       - 80
