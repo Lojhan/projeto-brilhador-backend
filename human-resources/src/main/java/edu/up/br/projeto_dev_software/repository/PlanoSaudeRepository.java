@@ -8,3 +8,15 @@ public interface PlanoSaudeRepository extends JpaRepository<PlanoSaude, Long> {
 
 
 }
+
+// Estrutura e exemplos lista de treinamento para json server:
+  // ID: 1
+  // Nome do plano: Plano de saúde - premium 
+  // Valor do plano: 87
+  // Area (FK vindo da classe Funcionario): "Funcionario"
+
+// Estrutura e exemplos lista de treinamento para json server:
+  // ID: 2
+  // Nome do plano: Plano de saúde - basic 
+  // Valor do plano: 35
+  // Area (FK vindo da classe Funcionario): "Funcionario"
