@@ -8,17 +8,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="supply-chain-emplee" />
-        <module name="operacaocontabil" />
         <module name="plano-contas" />
         <module name="pessoa" />
-        <module name="sender" />
+        <module name="supplyChainProject (1)" />
         <module name="lancamentos_contabeis" />
-        <module name="clientRelationship" />
         <module name="patrimonial" />
         <module name="inventory" />
+        <module name="supplyChainMovement" />
+        <module name="operacaocontabil" />
+        <module name="sender" />
+        <module name="clientRelationship" />
+        <module name="supplyChainProject" />
         <module name="gateway" />
         <module name="authentication" />
-        <module name="supplyChainMovement" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -43,6 +45,8 @@
       <module name="sender" options="-parameters" />
       <module name="supply-chain-emplee" options="-parameters" />
       <module name="supplyChainMovement" options="-parameters" />
+      <module name="supplyChainProject" options="-parameters" />
+      <module name="supplyChainProject (1)" options="-parameters" />
     </option>
   </component>
 </project>
