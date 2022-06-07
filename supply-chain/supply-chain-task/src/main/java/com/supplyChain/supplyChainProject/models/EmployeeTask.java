@@ -1,16 +1,20 @@
 package com.supplyChain.supplyChainProject.models;
 
+import com.supplyChain.supplyChainProject.models.enums.Status;
+import com.supplyChain.supplyChainProject.models.interfaces.IValidation;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
 
 @Entity
-public class EmployeeTask {
+public class EmployeeTask extends Validation implements IValidation {
 
     public EmployeeTask() {}
 
-    public EmployeeTask(Long id, String task, String description, String dependOnThirdParty, boolean status) {
+    public EmployeeTask(Long id, String task, String description, String dependOnThirdParty, Status status) {
+        super();
         Id = id;
         this.task = task;
         this.description = description;
@@ -23,7 +27,7 @@ public class EmployeeTask {
     private String description;
     private String dependOnThirdParty;
     private String ourId = "@gestaocadeiasup";
-    private boolean status;
+    private Status status;
 
     public String getOurId() {
         return ourId;
@@ -65,11 +69,31 @@ public class EmployeeTask {
         this.dependOnThirdParty = dependOnThirdParty;
     }
 
-    public boolean isStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public void Validate() {
+        if(getTask() == null || getTask() == "") {
+            setValid(false);
+        }
+
+        if(getDescription() == null || getDescription() == "") {
+            setValid(false);
+        }
+
+        if(getStatus() == Status.NONE) {
+            setValid(false);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return " Task: " + this.task + " Description: " + this.description + " IsValid: " + this.isValid() + "Status: " + this.status;
     }
 }

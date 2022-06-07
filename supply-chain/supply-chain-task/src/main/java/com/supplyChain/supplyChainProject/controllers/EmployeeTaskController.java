@@ -12,18 +12,41 @@ public class EmployeeTaskController {
         _repository = repository;
     }
 
-    @PostMapping("/create-task") // create a new task
+    @PostMapping("/create-task")
+        // create a new task
     EmployeeTask newTask(@RequestBody EmployeeTask task) {
-        return _repository.save(task);
+        try {
+            task.Validate();
+            System.out.println(task.toString());
+
+            if(!task.IsValid) {
+                return null;
+            }
+
+            return _repository.save(task);
+        } catch (Exception e) {
+            throw new RuntimeException("newTask{" + task.toString() + "}", e);
+        }
     }
 
-    @GetMapping("/tasks") // lists all tasks
+    @GetMapping("/tasks")
+        // lists all tasks
     Iterable<EmployeeTask> getAllTasks() {
-        return _repository.findAll();
+
+        try {
+            return _repository.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("getAllTasks", e);
+        }
     }
 
-    @GetMapping("/task/{id}") // find task by id
+    @GetMapping("/task/{id}")
+        // find task by id
     EmployeeTask taskById(@PathVariable Long id) {
-        return _repository.findById(id).orElse(null);
+        try {
+            return _repository.findById(id).orElse(null);
+        } catch (Exception e) {
+            throw new RuntimeException("taskById::{" + id.toString() + "}", e);
+        }
     }
 }
