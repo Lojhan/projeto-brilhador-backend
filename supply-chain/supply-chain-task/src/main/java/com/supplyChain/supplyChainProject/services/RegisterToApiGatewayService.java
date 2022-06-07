@@ -19,8 +19,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RegisterToApiGatewayService {
     String gatewayUrl = "http://brilhador-api-gateway/uris";
-    String appKey = "supply-chain";
-    String appUrl = "http://supply-chain-brilhador";
+    String appKey = "supply-chain-task";
+    String appUrl = "http://supply-chain-task-brilhador";
 
     private RestTemplate restTemplate;
 
