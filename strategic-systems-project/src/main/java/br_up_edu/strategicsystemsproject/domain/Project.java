@@ -14,7 +14,15 @@ public class Project {
     private String name;
     private String description;
     private Double daysToDelivery;
+    private Long id_area;
 
+    public Long getId_area() {
+        return id_area;
+    }
+
+    public void setId_area(Long id_area) {
+        this.id_area = id_area;
+    }
 
     public Project() {
 
