@@ -25,6 +25,11 @@ import javax.servlet.http.HttpServletResponse;
 )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Value("${springdoc.api-docs.path}")
+    private String restApiDocPath;
+    @Value("${springdoc.swagger-ui.path}")
+    private String swaggerPath;
+
     JwtTokenFilter jwtTokenFilter;
 
     public SecurityConfig(
@@ -59,11 +64,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and();
 
         http.authorizeRequests()
-                .antMatchers("/**/funcionario/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
-                .antMatchers("/**/folhaPgto/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
-                .antMatchers("/**/planoSaude/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
-                .antMatchers("/**/relCliente/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name())
-                .antMatchers("/**/treinamento/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name());
+                .antMatchers("/**/funcionario/**").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
+                .antMatchers("/**/folhaPgto/**").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
+                .antMatchers("/**/planoSaude/**").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
+                .antMatchers("/**/relCliente/**").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name())
+                .antMatchers("/**/treinamento/**").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name());
         
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
