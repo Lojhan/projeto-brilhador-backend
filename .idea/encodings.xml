@@ -3,7 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/authentication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authentication/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client-relationship/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/client-relationship/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/financial/lancamentos_contabeis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/financial/lancamentos_contabeis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/financial/operacaocontabil/src/main/java" charset="UTF-8" />

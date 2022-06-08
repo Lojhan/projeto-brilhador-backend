@@ -32,6 +32,7 @@ public class UriConfiguration {
 		uris.put("supply-chain-movement-brilhador", "http://supply-chain-movement-brilhador");
 		uris.put("supply-chain-task-brilhador", "http://supply-chain-task-brilhador");
 		uris.put("inventory", "http://inventory-brilhador");
+		uris.put("human-resources","http://human-resources-brilhador");
 
 		gatewayRoutesRefresher.refreshRoutes();
 		uris.forEach((key, value) -> addRoute(key, key, value));
