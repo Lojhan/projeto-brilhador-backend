@@ -126,7 +126,7 @@ public class ProcessController {
 
                 HttpRequest request = HttpRequest.newBuilder()
                         .POST(HttpRequest.BodyPublishers.ofString(json))
-                        .uri(URI.create("http://supply-chain-brilhador/supply-chain/movement"))
+                        .uri(URI.create("http://supply-chain-movement-brilhador/supply-chain/movement"))
                         .build();
 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -175,7 +175,7 @@ public class ProcessController {
 
         HttpRequest request = HttpRequest.newBuilder()
             .POST(HttpRequest.BodyPublishers.ofString(json))
-            .uri(URI.create("http://supply-chain-brilhador/supply-chain/movement"))
+            .uri(URI.create("http://supply-chain-movement-brilhador/supply-chain/movement"))
             .build();
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
