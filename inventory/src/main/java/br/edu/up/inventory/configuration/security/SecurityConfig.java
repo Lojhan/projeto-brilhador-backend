@@ -71,8 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/process/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
                 .antMatchers("/**/product").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
                 .antMatchers("/**/product/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
-                .antMatchers("/**/warehouse").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name())
-                .antMatchers("/**/warehouse/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name());
+                .antMatchers("/**/warehouse").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
+                .antMatchers("/**/warehouse/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name());
         
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }

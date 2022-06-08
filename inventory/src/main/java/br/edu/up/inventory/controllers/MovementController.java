@@ -89,7 +89,7 @@ public class MovementController {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(json))
-                .uri(URI.create("http://supply-chain-movement-brilhador/supply-chain/movement"))
+                .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
                 .build();
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
