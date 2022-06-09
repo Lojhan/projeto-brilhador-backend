@@ -15,6 +15,7 @@ import java.net.http.HttpResponse;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -44,7 +45,11 @@ public class ProcessController {
 
     @GetMapping("/{id}")
     Process findById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
+        return optionalProcess.get();
     }
 
     @PostMapping()
@@ -81,15 +86,27 @@ public class ProcessController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
         repository.deleteById(id);
     }
 
     @PostMapping("/{id}/execute")
     boolean executeProcess(@PathVariable Long id) throws IOException, InterruptedException, ResponseStatusException {
-        Process process = repository.findById(id).get();
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
+        Process process = optionalProcess.get();
 
         process.getIngredients().forEach(ingredient -> {
-            Product product = productRepository.findById(ingredient.getIdProduct()).get();
+            Optional<Product> optionalProduct = productRepository.findById(ingredient.getIdProduct());
+            if (optionalProduct.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%S\" not found", ingredient.getIdProduct()));
+            }
+            Product product = optionalProduct.get();
             if (product.getQuantity() < ingredient.getQuantity()) {
                 throw new ResponseStatusException(
                         HttpStatus.UNPROCESSABLE_ENTITY,
@@ -107,7 +124,11 @@ public class ProcessController {
                 ingredient.getIdProduct()
             );
 
-            Product product = productRepository.findById(ingredient.getIdProduct()).get();
+            Optional<Product> optionalProduct = productRepository.findById(ingredient.getIdProduct());
+            if (optionalProduct.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%S\" not found", ingredient.getIdProduct()));
+            }
+            Product product = optionalProduct.get();
             product.setQuantity(product.getQuantity() - ingredient.getQuantity());
 
             productRepository.save(product);
@@ -143,7 +164,11 @@ public class ProcessController {
                 process.getIdProduct()
         );
 
-        Product producedProduct = productRepository.findById(process.getIdProduct()).get();
+        Optional<Product> optionalProducedProduct = productRepository.findById(process.getIdProduct());
+        if (optionalProducedProduct.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+        Product producedProduct = optionalProducedProduct.get();
         producedProduct.setQuantity(producedProduct.getQuantity() + process.getQuantityProduced());
 
         if (producedProduct.getIdWarehouse() == 1) {
