@@ -33,7 +33,7 @@ public class SupplyChainProjectApplication {
 
 	@RequestMapping("/health-check")
 	public String healthCheck(){
-		return "It is working";
+		return "It is working ";
 	}
 
 }
