@@ -37,6 +37,14 @@ public class Movement {
         this.idProduct = idProduct;
     }
 
+    public Movement(String name, int totalPrice, Timestamp dateTime, MovementNature nature, long idProduct) {
+        this.name = name;
+        this.totalPrice = totalPrice;
+        this.dateTime = dateTime;
+        this.nature = nature;
+        this.idProduct = idProduct;
+    }
+
     public void updateMovement(Movement movementChanged) {
         this.name = movementChanged.getName();
         this.nature = movementChanged.getNature();

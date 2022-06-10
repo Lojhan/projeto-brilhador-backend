@@ -40,6 +40,8 @@ public class ProductController {
 
     @PostMapping()
     Product create(@RequestBody Product novoProduct) {
+        novoProduct.setQuantity(0);
+        novoProduct.setIdWarehouse(1); // default warehouse
         return repository.save(novoProduct);
     }
 
@@ -54,6 +56,8 @@ public class ProductController {
                 .orElseGet(() -> {
                     // id não encontrado
                     productAlterado.setId(id);
+                    productAlterado.setQuantity(0);
+                    productAlterado.setIdWarehouse(1); // default warehouse
                     return repository.save(productAlterado);
                 });
     }
