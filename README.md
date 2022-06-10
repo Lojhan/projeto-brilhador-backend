@@ -115,6 +115,7 @@
    <h5>Vinícius Kruchelski Gugelmin - 8813365614</h5>
    <h5>Garbriel Fernando Cazeque Zanin - 8813372831</h5>
    <h5>Carlos Roberto Pereira Neres Filho - 8813207156</h5>
+   <h5>Luis Fernando Rezende Santos - 12468631</h5>
 
   <h3> Sistemas estratégicos</h3>
     <h5>Anna Cruz @AnnaCzt - 12222062</h5>
