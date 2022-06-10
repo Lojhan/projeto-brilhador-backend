@@ -12,6 +12,7 @@
         <module name="pessoa" />
         <module name="supplyChainProject (1)" />
         <module name="lancamentos_contabeis" />
+        <module name="supplyChainProject (2)" />
         <module name="patrimonial" />
         <module name="inventory" />
         <module name="supplyChainMovement" />
@@ -47,6 +48,7 @@
       <module name="supplyChainMovement" options="-parameters" />
       <module name="supplyChainProject" options="-parameters" />
       <module name="supplyChainProject (1)" options="-parameters" />
+      <module name="supplyChainProject (2)" options="-parameters" />
     </option>
   </component>
 </project>
