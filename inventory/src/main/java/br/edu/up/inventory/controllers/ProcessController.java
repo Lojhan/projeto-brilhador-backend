@@ -156,7 +156,6 @@ public class ProcessController {
                 System.out.println(res.request());
                 System.out.println(res.body());
 
-                client.send(request, HttpResponse.BodyHandlers.ofString());
             } catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
             }
@@ -214,8 +213,6 @@ public class ProcessController {
         System.out.println(res.statusCode());
         System.out.println(res.request());
         System.out.println(res.body());
-
-        client.send(request, HttpResponse.BodyHandlers.ofString());
 
         return true;
     }
