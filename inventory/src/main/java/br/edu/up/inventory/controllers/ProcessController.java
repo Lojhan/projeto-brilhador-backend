@@ -201,18 +201,22 @@ public class ProcessController {
             process.getQuantityProduced()
         );
 
-        HttpClient client = HttpClient.newHttpClient();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
 
-        HttpRequest request = HttpRequest.newBuilder()
-            .POST(HttpRequest.BodyPublishers.ofString(json))
-            .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
-            .header("Content-Type", "application/json")
-            .build();
+            HttpRequest request = HttpRequest.newBuilder()
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                .header("Content-Type", "application/json")
+                .build();
 
-        HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(res.statusCode());
-        System.out.println(res.request());
-        System.out.println(res.body());
+            HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(res.statusCode());
+            System.out.println(res.request());
+            System.out.println(res.body());
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
 
         return true;
     }
