@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/create-ticket").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
                 .antMatchers("/**/get-tickets-for-user").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
                 .antMatchers("/**/ticket/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
-                .antMatchers("/**/change-ticket-status/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name())
+                .antMatchers("/**/change-ticket-status/*").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name())
                 .antMatchers("/**/save-client-address").hasAnyAuthority(Role.ADMIN.name(), Role.OPERATOR.name(), Role.USER.name());
         
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
