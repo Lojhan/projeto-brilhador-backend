@@ -1,0 +1,39 @@
+teste de produto 
+{
+    "id": 3,
+    "price": 220,
+    "description": "Teste Produto 3 ",
+    "name": "Teste Produto 3 ",
+    "quantity": 100,
+    "sku": "joker",
+    "idWarehouse": 1,
+     "warehouse":{
+                               "id": 1,
+                               "description": "jucasteimoso"
+      }
+     
+  }
+  
+  
+  
+  
+ teste de movimento
+ 
+ {
+    "id": 1,
+    "totalPrice": 400,
+    "dateTime": "2022-04-05",
+    "name": "Teste Movment 1 ",
+    "quantity": 200,
+    "nature": "INCOMING",
+    "idProduct": 3,   
+     "product":{
+				"id": 3,
+				"price": 220,
+				"description": "Teste Produto 3 ",
+				"name": "Teste Produto 3 ",
+				"quantity": 100,
+				"sku": "joker",
+				"idWarehouse": 1
+			  }
+  }

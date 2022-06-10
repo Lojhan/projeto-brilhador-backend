@@ -5,9 +5,8 @@ public class ValidationResponse {
     UserResponse user;
 
     public ValidationResponse(
-        boolean valid,
-        UserResponse user
-    ) {
+            boolean valid,
+            UserResponse user) {
         this.valid = valid;
         this.user = user;
     }
