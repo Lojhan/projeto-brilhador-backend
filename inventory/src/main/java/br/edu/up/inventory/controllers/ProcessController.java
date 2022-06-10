@@ -148,7 +148,13 @@ public class ProcessController {
                 HttpRequest request = HttpRequest.newBuilder()
                         .POST(HttpRequest.BodyPublishers.ofString(json))
                         .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                        .header("Content-Type", "application/json")
                         .build();
+
+                HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+                System.out.println(res.statusCode());
+                System.out.println(res.request());
+                System.out.println(res.body());
 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
             } catch (Exception e) {
@@ -201,7 +207,13 @@ public class ProcessController {
         HttpRequest request = HttpRequest.newBuilder()
             .POST(HttpRequest.BodyPublishers.ofString(json))
             .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+            .header("Content-Type", "application/json")
             .build();
+
+        HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(res.statusCode());
+        System.out.println(res.request());
+        System.out.println(res.body());
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
 
