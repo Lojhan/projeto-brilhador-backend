@@ -82,17 +82,10 @@ public class PatrimonialController {
         List<Product> products = responseEntity.getBody();
 
         for (Product product : products) {
-
-            String dataMovimento = formatter.format(product.getDateTime());
-            String dataLanc = formatter.format(datinha);
-            if (dataMovimento.equals(dataLanc)) {
-                LancamentoCabecalho cabAux = new LancamentoCabecalho(datinha, "ES",
-                        dataMovimento + "- Data DAtinha " + dataLanc + " Lançamento Referente ao Produto"
-                                + product.getName() + "de id " + (String.valueOf(product.getId())));
-                cabRepository.save(cabAux);
-                lancRepository.save(new Lancamento(cabAux, 250, "Conta de Estoque", 0, product.getTotalPrice()));
-                lancRepository.save(new Lancamento(cabAux, 200, "Conta de Resultado", product.getTotalPrice(), 0));
-            }
+            Patrimonial pat = new Patrimonial();  
+            pat.setNome(product.getName());
+            pat.setValor(product.getPrice());
+            repository.save(pat);
         }
         return repository.findAll();
     }
