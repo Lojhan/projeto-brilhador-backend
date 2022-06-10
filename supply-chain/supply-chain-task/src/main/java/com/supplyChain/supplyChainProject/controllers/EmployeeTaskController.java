@@ -93,6 +93,6 @@ public class EmployeeTaskController {
                     Task.setStatus(newTask.getStatus() == null ? Task.getStatus() : newTask.getStatus());
                     _repository.save(Task);
                     return ResponseEntity.status(HttpStatus.OK).body("Atualizado com sucesso!");
-                }).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id não encontrado."));
+                }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado."));
     }
 }
