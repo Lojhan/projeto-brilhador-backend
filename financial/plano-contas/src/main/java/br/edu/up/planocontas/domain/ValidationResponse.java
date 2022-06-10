@@ -1,4 +1,4 @@
-package com.brilhador.authentication.models.dto;
+package br.edu.up.planocontas.domain;
 
 public class ValidationResponse {
     boolean valid;
