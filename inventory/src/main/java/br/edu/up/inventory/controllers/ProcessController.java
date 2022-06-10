@@ -15,6 +15,7 @@ import java.net.http.HttpResponse;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -29,9 +30,7 @@ public class ProcessController {
     private final WarehouseRepository warehouseRepository;
     private final MovementRepository movementRepository;
 
-    ProcessController(ProcessRepository repository, ProductRepository productRepository,
-            IngredientRepository ingredientRepository, WarehouseRepository warehouseRepository,
-            MovementRepository movementRepository) {
+    ProcessController(ProcessRepository repository, ProductRepository productRepository, IngredientRepository ingredientRepository, WarehouseRepository warehouseRepository, MovementRepository movementRepository) {
         this.repository = repository;
         this.productRepository = productRepository;
         this.ingredientRepository = ingredientRepository;
@@ -46,7 +45,11 @@ public class ProcessController {
 
     @GetMapping("/{id}")
     Process findById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
+        return optionalProcess.get();
     }
 
     @PostMapping()
@@ -56,7 +59,8 @@ public class ProcessController {
                 novoProcess.getName(),
                 novoProcess.getDescription(),
                 novoProcess.getQuantityProduced(),
-                novoProcess.getIdProduct());
+                novoProcess.getIdProduct()
+        );
         Process createdProcess = repository.save(auxProcess);
         novoProcess.getIngredients().forEach(ingredient -> {
             ingredient.setIdProcess(createdProcess.getId());
@@ -82,32 +86,51 @@ public class ProcessController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
         repository.deleteById(id);
     }
 
     @PostMapping("/{id}/execute")
     boolean executeProcess(@PathVariable Long id) throws IOException, InterruptedException, ResponseStatusException {
-        Process process = repository.findById(id).get();
+        Optional<Process> optionalProcess =  repository.findById(id);
+        if (optionalProcess.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Process not found");
+        }
+        Process process = optionalProcess.get();
 
         process.getIngredients().forEach(ingredient -> {
-            Product product = productRepository.findById(ingredient.getIdProduct()).get();
+            Optional<Product> optionalProduct = productRepository.findById(ingredient.getIdProduct());
+            if (optionalProduct.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%S\" not found", ingredient.getIdProduct()));
+            }
+            Product product = optionalProduct.get();
             if (product.getQuantity() < ingredient.getQuantity()) {
                 throw new ResponseStatusException(
                         HttpStatus.UNPROCESSABLE_ENTITY,
-                        String.format("Missing stock for product \"%S\"", product.getName()));
+                        String.format("Missing stock for product \"%S\"", product.getName())
+                );
             }
         });
 
         process.getIngredients().forEach(ingredient -> {
             Movement movement = new Movement(
-                    String.format("Process execution: \"$s\"", process.getName()),
-                    0,
-                    Timestamp.from(Instant.now()),
-                    MovementNature.OUTGOING,
-                    ingredient.getIdProduct());
+                String.format("Process execution: %s", process.getName()),
+                0,
+                Timestamp.from(Instant.now()),
+                MovementNature.OUTGOING,
+                ingredient.getIdProduct()
+            );
 
-            Product product = productRepository.findById(ingredient.getIdProduct()).get();
+            Optional<Product> optionalProduct = productRepository.findById(ingredient.getIdProduct());
+            if (optionalProduct.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%s\" not found", ingredient.getIdProduct()));
+            }
+            Product product = optionalProduct.get();
             product.setQuantity(product.getQuantity() - ingredient.getQuantity());
+            movement.setQuantity(ingredient.getQuantity());
 
             productRepository.save(product);
             movementRepository.save(movement);
@@ -117,31 +140,43 @@ public class ProcessController {
                     movement.getNature() == MovementNature.INCOMING ? "input" : "output",
                     movement.getQuantity(),
                     movement.getIdProduct(),
-                    product.getQuantity());
+                    product.getQuantity()
+            );
 
             try {
                 HttpClient client = HttpClient.newHttpClient();
 
                 HttpRequest request = HttpRequest.newBuilder()
                         .POST(HttpRequest.BodyPublishers.ofString(json))
-                        .uri(URI.create("http://supply-chain-brilhador/supply-chain/movement"))
+                        .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                        .header("Content-Type", "application/json")
                         .build();
 
-                client.send(request, HttpResponse.BodyHandlers.ofString());
+                HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+                System.out.println(res.statusCode());
+                System.out.println(res.request());
+                System.out.println(res.body());
+
             } catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
             }
         });
 
         Movement movement = new Movement(
-                String.format("Process execution: \"$s\"", process.getName()),
+                String.format("Process execution: %s", process.getName()),
                 0,
                 Timestamp.from(Instant.now()),
                 MovementNature.INCOMING,
-                process.getIdProduct());
+                process.getIdProduct()
+        );
 
-        Product producedProduct = productRepository.findById(process.getIdProduct()).get();
+        Optional<Product> optionalProducedProduct = productRepository.findById(process.getIdProduct());
+        if (optionalProducedProduct.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+        Product producedProduct = optionalProducedProduct.get();
         producedProduct.setQuantity(producedProduct.getQuantity() + process.getQuantityProduced());
+        movement.setQuantity(process.getQuantityProduced());
 
         if (producedProduct.getIdWarehouse() == 1) {
             Iterable<Warehouse> iterable = warehouseRepository.findAll();
@@ -161,20 +196,29 @@ public class ProcessController {
         movementRepository.save(movement);
 
         String json = String.format(
-                "{ \"type\":\"%s\", \"quantity\": %s, \"product_id\": %s, \"current_stock_quantity\": %s }",
-                movement.getNature() == MovementNature.INCOMING ? "input" : "output",
-                movement.getQuantity(),
-                movement.getIdProduct(),
-                process.getQuantityProduced());
+            "{ \"type\":\"%s\", \"quantity\": %s, \"product_id\": %s, \"current_stock_quantity\": %s }",
+            movement.getNature() == MovementNature.INCOMING ? "input" : "output",
+            movement.getQuantity(),
+            movement.getIdProduct(),
+            process.getQuantityProduced()
+        );
 
-        HttpClient client = HttpClient.newHttpClient();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
 
-        HttpRequest request = HttpRequest.newBuilder()
+            HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(json))
-                .uri(URI.create("http://supply-chain-brilhador/supply-chain/movement"))
+                .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                .header("Content-Type", "application/json")
                 .build();
 
-        client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(res.statusCode());
+            System.out.println(res.request());
+            System.out.println(res.body());
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
 
         return true;
     }

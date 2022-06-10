@@ -2,11 +2,13 @@ package br.edu.up.inventory.controllers;
 
 import br.edu.up.inventory.domain.Movement;
 import br.edu.up.inventory.domain.MovementNature;
+import br.edu.up.inventory.domain.Process;
 import br.edu.up.inventory.domain.Product;
 import br.edu.up.inventory.domain.Warehouse;
 import br.edu.up.inventory.repository.MovementRepository;
 import br.edu.up.inventory.repository.ProductRepository;
 import br.edu.up.inventory.repository.WarehouseRepository;
+import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -17,6 +19,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -42,12 +45,20 @@ public class MovementController {
 
     @GetMapping("/{id}")
     Movement findById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        Optional<Movement> optionalMovement =  repository.findById(id);
+        if (optionalMovement.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Movement not found");
+        }
+        return optionalMovement.get();
     }
 
     @PostMapping()
     Movement create(@RequestBody Movement newMovement) throws IOException, InterruptedException, ResponseStatusException {
-        Product product = productRepository.findById(newMovement.getIdProduct()).get();
+        Optional<Product> optionalProduct = productRepository.findById(newMovement.getIdProduct());
+        if (optionalProduct.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+        Product product = optionalProduct.get();
         int newQuantity = product.getQuantity();
         if (newMovement.getNature() == MovementNature.INCOMING) {
             newQuantity += newMovement.getQuantity();
@@ -85,15 +96,23 @@ public class MovementController {
                 newQuantity
         );
 
-        HttpClient client = HttpClient.newHttpClient();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofString(json))
-                .uri(URI.create("http://supply-chain-brilhador/supply-chain/movement"))
-                .build();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                    .header("Content-Type", "application/json")
+                    .build();
 
-        client.send(request, HttpResponse.BodyHandlers.ofString());
-
+            HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(res.statusCode());
+            System.out.println(res.request());
+            System.out.println(res.body());
+        }  catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+        
         return result;
     }
 
@@ -114,6 +133,10 @@ public class MovementController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        Optional<Movement> optionalMovement =  repository.findById(id);
+        if (optionalMovement.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Movement not found");
+        }
         repository.deleteById(id);
     }
 
