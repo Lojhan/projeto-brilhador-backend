@@ -8,6 +8,7 @@ import br.edu.up.inventory.domain.Warehouse;
 import br.edu.up.inventory.repository.MovementRepository;
 import br.edu.up.inventory.repository.ProductRepository;
 import br.edu.up.inventory.repository.WarehouseRepository;
+import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -100,9 +101,13 @@ public class MovementController {
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .uri(URI.create("http://supply-chain-movement-brilhador/movement"))
+                .header("Content-Type", "application/json")
                 .build();
 
-        client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> res = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(res.statusCode());
+        System.out.println(res.request());
+        System.out.println(res.body());
 
         return result;
     }
