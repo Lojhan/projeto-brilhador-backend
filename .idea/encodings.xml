@@ -12,10 +12,13 @@
     <file url="file://$PROJECT_DIR$/financial/patrimonial/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/financial/plano-contas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/financial/plano-contas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inventory/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mail/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mail/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/strategic-systems-project/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/strategic-systems-project/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/supply-chain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/supply-chain/supply-chain-movement/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/supply-chain/supply-chain-movement/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/supply-chain/supply-chain-task/src/main/java" charset="UTF-8" />
   </component>
 </project>

@@ -18,6 +18,14 @@ public class QueueSender {
     @Autowired()
     private Queue userTicketsQueue;
 
+    @Qualifier("userTicketEmployeeTaskQueue")
+    @Autowired()
+    private Queue userTicketEmployeeTaskQueue;
+
+    public void sendUserTicketEmployeeTask(UserTicketDTO userTicketDTO) {
+        rabbitTemplate.convertAndSend(this.userTicketEmployeeTaskQueue.getName(), userTicketDTO.toJSON());
+    }
+
     public void sendUserTicketMessage(UserTicketDTO userTicketDTO) {
         rabbitTemplate.convertAndSend(this.userTicketsQueue.getName(), userTicketDTO.toJSON());
     }

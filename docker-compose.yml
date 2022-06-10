@@ -168,11 +168,27 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
+  supply-chain-movement-brilhador:
+    container_name: supply-chain-movement-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './supply-chain/supply-chain-movement:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
   supply-chain-brilhador:
-    container_name: supply-chain-brilhador
+    container_name: supply-chain-task-brilhador
     image: openjdk:11.0.15-slim-buster
     volumes:
-      - './supply-chain:/app'
+      - './supply-chain/supply-chain-task:/app'
     working_dir: /app
     expose:
       - 80
@@ -184,11 +200,11 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
-  buy-sales-brilhador:
-    container_name: buy-sales-brilhador
-    image: openjdk:11.0.15-slim-buster
+  human-resources-brilhador:
+    container_name: human-resources-brilhador
+    image: openjdk:17.0.2-slim-buster
     volumes:
-      - './buy-sales:/app'
+      - './human-resources:/app'
     working_dir: /app
     expose:
       - 80
@@ -200,3 +216,21 @@ services:
       - postgres-brilhador
       - rabbitmq
       - api-gateway
+
+  inventory-brilhador:
+    container_name: inventory-brilhador
+    image: openjdk:11.0.15-slim-buster
+    volumes:
+      - './inventory:/app'
+    working_dir: /app
+    expose:
+      - 80
+    command: sh mvnw spring-boot:run -X
+    networks:
+      - brilhador
+    restart: unless-stopped
+    depends_on:
+      - postgres-brilhador
+      - rabbitmq
+      - api-gateway
+

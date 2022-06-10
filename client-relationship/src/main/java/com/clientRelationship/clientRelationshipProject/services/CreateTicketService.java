@@ -26,7 +26,9 @@ public class CreateTicketService {
         TicketInfo ticketInfo
     ) {
         Ticket ticket = ticketInfo.toCompleteTicket(user.getId(), new UUID(0, 0));
-        this.queueSender.sendUserTicketMessage(new UserTicketDTO(user, ticketInfo));
+        UserTicketDTO dto = new UserTicketDTO(user, ticketInfo);
+        this.queueSender.sendUserTicketMessage(dto);
+        this.queueSender.sendUserTicketEmployeeTask(dto);
         return ticketRepository.save(ticket);
     }    
 }

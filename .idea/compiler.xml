@@ -7,21 +7,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="operacaocontabil" />
+        <module name="supply-chain-emplee" />
         <module name="plano-contas" />
         <module name="pessoa" />
-        <module name="sender" />
+        <module name="supplyChainProject (1)" />
         <module name="lancamentos_contabeis" />
+        <module name="patrimonial" />
+        <module name="inventory" />
+        <module name="supplyChainMovement" />
+        <module name="operacaocontabil" />
+        <module name="sender" />
         <module name="clientRelationship" />
         <module name="supplyChainProject" />
-        <module name="patrimonial" />
         <module name="gateway" />
         <module name="authentication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="movement" target="11" />
       <module name="supply-chain" target="11" />
       <module name="supply-chain-project" target="11" />
+      <module name="supply-chain-task" target="11" />
+      <module name="supplyChainMovement" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -29,13 +36,17 @@
       <module name="authentication" options="-parameters" />
       <module name="clientRelationship" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="inventory" options="-parameters" />
       <module name="lancamentos_contabeis" options="-parameters" />
       <module name="operacaocontabil" options="-parameters" />
       <module name="patrimonial" options="-parameters" />
       <module name="pessoa" options="-parameters" />
       <module name="plano-contas" options="-parameters" />
       <module name="sender" options="-parameters" />
+      <module name="supply-chain-emplee" options="-parameters" />
+      <module name="supplyChainMovement" options="-parameters" />
       <module name="supplyChainProject" options="-parameters" />
+      <module name="supplyChainProject (1)" options="-parameters" />
     </option>
   </component>
 </project>
