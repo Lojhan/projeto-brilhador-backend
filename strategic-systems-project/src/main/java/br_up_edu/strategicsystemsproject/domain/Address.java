@@ -1,21 +1,6 @@
-package com.clientRelationship.clientRelationshipProject.models.base;
+package br_up_edu.strategicsystemsproject.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-
-@Entity
-@Table(name = "addresses")
 public class Address {
-    
-    @Id @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
-    private String id;
-
     private String street;
     private String number;
     private String complement;
@@ -24,16 +9,10 @@ public class Address {
     private String state;
     private String country;
 
-    @OneToOne(mappedBy = "address")
-    private User user;
+    public Address() {};
 
-    public Address() {
-        
-    }
-
-    public Address(String id, String street, String number, String complement, String zipCode, String city,
+    public Address(String street, String number, String complement, String zipCode, String city,
             String state, String country) {
-        this.id = id;
         this.street = street;
         this.number = number;
         this.complement = complement;
@@ -41,14 +20,6 @@ public class Address {
         this.city = city;
         this.state = state;
         this.country = country;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getStreet() {
@@ -105,13 +76,5 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

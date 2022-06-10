@@ -8,7 +8,8 @@ public class CreateRoute {
     static Buildable<Route> createRoute(PredicateSpec p, String path, String service) {
 		String url = String.format("/%s/**", path);
 		return p.path(url).filters(r -> r.stripPrefix(1)
-			.circuitBreaker(configConsumer -> configConsumer.setFallbackUri("forward:/fallback")))
+			// .circuitBreaker(configConsumer -> configConsumer.setFallbackUri("forward:/fallback"))
+			)
 		.uri(service); 
 	}
 }

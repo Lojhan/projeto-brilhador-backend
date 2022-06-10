@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.UUID;
 import com.clientRelationship.clientRelationshipProject.models.base.Address;
 import com.clientRelationship.clientRelationshipProject.models.base.Role;
+import com.clientRelationship.clientRelationshipProject.models.base.User;
 
 public class UserResponse implements Serializable {
     private UUID id;
@@ -96,5 +97,15 @@ public class UserResponse implements Serializable {
         json += "\"role\":\"" + role + "\"";
         json += "}";
         return json;
+    }
+
+    public User toUser() {
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        user.setEmail(email);
+        user.setCpf(cpf);
+        user.setPhone(phone);
+        return user;
     }
 }
