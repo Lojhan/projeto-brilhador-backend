@@ -234,11 +234,11 @@ services:
       - rabbitmq
       - api-gateway
     
-  purchases-and-sales:
+  purchases-and-sales-brilhador:
     container_name: purchases-and-sales
     image: openjdk:11.0.15-slim-buster
     volumes:
-      - './mic-pessoas:/app'
+      - './purchases-and-sales:/app'
     working_dir: /app
     expose:
       - 80
