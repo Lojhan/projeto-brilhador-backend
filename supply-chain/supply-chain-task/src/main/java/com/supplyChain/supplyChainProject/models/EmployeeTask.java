@@ -13,29 +13,20 @@ public class EmployeeTask extends Validation implements IValidation {
 
     public EmployeeTask() {}
 
-    public EmployeeTask(Long id, String task, String description, String dependOnThirdParty, Status status) {
+    public EmployeeTask(Long id, String name, String description, double daysToFinish, Status status) {
         super();
         Id = id;
-        this.task = task;
+        this.name = name;
         this.description = description;
-        this.dependOnThirdParty = dependOnThirdParty;
+        this.daysToFinish = daysToFinish;
         this.status = status;
     }
 
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long Id;
-    private String task;
+    private String name;
     private String description;
-    private String dependOnThirdParty;
-    private String ourId = "@gestaocadeiasup";
+    private double daysToFinish;
     private Status status;
-
-    public String getOurId() {
-        return ourId;
-    }
-
-    public void setOurId(String ourId) {
-        this.ourId = "@gestaodecadeiasup";
-    }
 
     public Long getId() {
         return Id;
@@ -45,12 +36,12 @@ public class EmployeeTask extends Validation implements IValidation {
         Id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getName() {
+        return name;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -61,12 +52,12 @@ public class EmployeeTask extends Validation implements IValidation {
         this.description = description;
     }
 
-    public String getDependOnThirdParty() {
-        return dependOnThirdParty;
+    public double getDaysToFinish() {
+        return daysToFinish;
     }
 
-    public void setDependOnThirdParty(String dependOnThirdParty) {
-        this.dependOnThirdParty = dependOnThirdParty;
+    public void setDaysToFinish(double daysToFinish) {
+        this.daysToFinish = daysToFinish;
     }
 
     public Status getStatus() {
@@ -79,11 +70,15 @@ public class EmployeeTask extends Validation implements IValidation {
 
     @Override
     public void Validate() {
-        if(getTask() == null || getTask() == "") {
+        if(getName() == null || getName() == "") {
             setValid(false);
         }
 
         if(getDescription() == null || getDescription() == "") {
+            setValid(false);
+        }
+
+        if(getDaysToFinish() < -1) {
             setValid(false);
         }
 
@@ -94,6 +89,6 @@ public class EmployeeTask extends Validation implements IValidation {
 
     @Override
     public String toString() {
-        return " Task: " + this.task + " Description: " + this.description + " IsValid: " + this.isValid() + "Status: " + this.status;
+        return " Task: " + this.name + " Description: " + this.description + " IsValid: " + this.isValid() + "Status: " + this.status;
     }
 }

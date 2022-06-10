@@ -1,8 +1,13 @@
 package br.edu.up.inventory.controllers;
 
+import br.edu.up.inventory.domain.Product;
 import br.edu.up.inventory.domain.Warehouse;
 import br.edu.up.inventory.repository.WarehouseRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/warehouse")
@@ -24,7 +29,11 @@ public class WarehouseController {
 
     @GetMapping("/{id}")
     Warehouse findById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        Optional<Warehouse> optionalWarehouse =  repository.findById(id);
+        if (optionalWarehouse.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Warehouse not found");
+        }
+        return optionalWarehouse.get();
     }
 
     @PostMapping()
@@ -49,6 +58,10 @@ public class WarehouseController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        Optional<Warehouse> optionalWarehouse =  repository.findById(id);
+        if (optionalWarehouse.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Warehouse not found");
+        }
         repository.deleteById(id);
     }
 

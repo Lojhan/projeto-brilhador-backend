@@ -20,9 +20,9 @@ public class UserTicketDTO implements Serializable {
 
     public EmployeeTask toEmployeeTask() {
         EmployeeTask task = new EmployeeTask();
-        task.setTask(this.ticket.getTitle());
+        task.setName(this.ticket.getTitle());
         task.setDescription(this.ticket.getDescription());
-        task.setDependOnThirdParty("");
+        task.setDaysToFinish(5);
         task.setStatus(Status.IN_PROGRESS);
         return task;
     }

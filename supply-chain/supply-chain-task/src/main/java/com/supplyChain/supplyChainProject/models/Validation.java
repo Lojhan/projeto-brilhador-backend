@@ -1,5 +1,7 @@
 package com.supplyChain.supplyChainProject.models;
 
+import java.util.List;
+
 public class Validation {
 
     public Validation() {
@@ -14,4 +16,5 @@ public class Validation {
     public void setValid(boolean valid) {
         IsValid = valid;
     }
+
 }

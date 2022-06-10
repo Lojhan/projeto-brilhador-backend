@@ -2,9 +2,12 @@ package br.edu.up.inventory.controllers;
 
 import br.edu.up.inventory.domain.Product;
 import br.edu.up.inventory.repository.ProductRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -35,7 +38,11 @@ public class ProductController {
 
     @GetMapping("/{id}")
     Product findById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        Optional<Product> optionalProduct =  repository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
+        return optionalProduct.get();
     }
 
     @PostMapping()
@@ -64,6 +71,10 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
+        Optional<Product> optionalProduct =  repository.findById(id);
+        if (optionalProduct.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
         repository.deleteById(id);
     }
 
