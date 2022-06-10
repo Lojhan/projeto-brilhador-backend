@@ -117,7 +117,7 @@ public class ProcessController {
 
         process.getIngredients().forEach(ingredient -> {
             Movement movement = new Movement(
-                String.format("Process execution: \"$s\"", process.getName()),
+                String.format("Process execution: %s", process.getName()),
                 0,
                 Timestamp.from(Instant.now()),
                 MovementNature.OUTGOING,
@@ -126,10 +126,11 @@ public class ProcessController {
 
             Optional<Product> optionalProduct = productRepository.findById(ingredient.getIdProduct());
             if (optionalProduct.isEmpty()) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%S\" not found", ingredient.getIdProduct()));
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Product with ID \"%s\" not found", ingredient.getIdProduct()));
             }
             Product product = optionalProduct.get();
             product.setQuantity(product.getQuantity() - ingredient.getQuantity());
+            movement.setQuantity(ingredient.getQuantity());
 
             productRepository.save(product);
             movementRepository.save(movement);
@@ -162,7 +163,7 @@ public class ProcessController {
         });
 
         Movement movement = new Movement(
-                String.format("Process execution: \"$s\"", process.getName()),
+                String.format("Process execution: %s", process.getName()),
                 0,
                 Timestamp.from(Instant.now()),
                 MovementNature.INCOMING,
@@ -175,6 +176,7 @@ public class ProcessController {
         }
         Product producedProduct = optionalProducedProduct.get();
         producedProduct.setQuantity(producedProduct.getQuantity() + process.getQuantityProduced());
+        movement.setQuantity(process.getQuantityProduced());
 
         if (producedProduct.getIdWarehouse() == 1) {
             Iterable<Warehouse> iterable = warehouseRepository.findAll();
