@@ -29,11 +29,6 @@ public class ProjectController {
         return repository.findById(id).get();
     }
 
-    // @GetMapping("/projects/{id}")
-    // Project findAreaByProject(@PathVariable Long id) {
-    //     return repository.findById(id).get();
-    // }
-
     @PostMapping("/projects")
     Project include(@RequestBody Project newProject){
         return repository.save(newProject);
@@ -56,9 +51,5 @@ public class ProjectController {
     void delete(@PathVariable Long id){
         repository.deleteById(id);
     }
-
-
-
-    
 
 }

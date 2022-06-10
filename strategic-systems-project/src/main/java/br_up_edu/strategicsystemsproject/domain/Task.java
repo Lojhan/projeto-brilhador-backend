@@ -14,17 +14,38 @@ public class Task {
     private String description;
     private Double daysToFinish;
     private String status;
+    private Long id_area;
+    private Long id_project;
     
     public Task() {
         
     }
-
-    public Task(String name, Project project, String descripction, Double daysToFinish, String status) {
+    
+    public Task(String name, Project project, String descripction, Double daysToFinish, String status, Long id_area, Long id_project) {
         this.name = name;
         this.description = descripction;
         this.daysToFinish = daysToFinish;
         this.status = status;
+        this.id_area = id_area;
+        this.id_project = id_project;
     }
+
+    public Long getId_project() {
+        return id_project;
+    }
+
+    public void setId_project(Long id_project) {
+        this.id_project = id_project;
+    }
+
+    public Long getId_area() {
+        return id_area;
+    }
+
+    public void setId_area(Long id_area) {
+        this.id_area = id_area;
+    }
+
 
     public Long getId() {
         return this.id;

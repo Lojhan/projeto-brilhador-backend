@@ -16,14 +16,6 @@ public class Project {
     private Double daysToDelivery;
     private Long id_area;
 
-    public Long getId_area() {
-        return id_area;
-    }
-
-    public void setId_area(Long id_area) {
-        this.id_area = id_area;
-    }
-
     public Project() {
 
     }
@@ -33,7 +25,14 @@ public class Project {
         this.description = descripction;
         this.daysToDelivery = daysToDelivery;
     }
+    public Long getId_area() {
+        return id_area;
+    }
 
+    public void setId_area(Long id_area) {
+        this.id_area = id_area;
+    }
+    
     public Long getId() {
         return this.id;
     }

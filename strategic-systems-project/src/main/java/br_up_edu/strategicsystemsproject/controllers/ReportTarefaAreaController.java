@@ -1,59 +1,50 @@
 package br_up_edu.strategicsystemsproject.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import br_up_edu.strategicsystemsproject.domain.ReportTarefaArea;
+import br_up_edu.strategicsystemsproject.domain.Task;
+import br_up_edu.strategicsystemsproject.repository.AreaRepository;
 import br_up_edu.strategicsystemsproject.repository.ReportTarefaAreaRepository;
 import br_up_edu.strategicsystemsproject.repository.TaskRepository;
-import br_up_edu.strategicsystemsproject.repository.AreaRepository;
 
 @RestController
 public class ReportTarefaAreaController {
 
-    private final ReportTarefaAreaRepository reportTarefaAreaRepository;
-    private final AreaRepository areaRepository;
-    private final TaskRepository taskRepository;
+    public final ReportTarefaAreaRepository reportRepository;
+    public final TaskRepository taskRepository;
+    public final AreaRepository areaRepository;
 
-    ReportTarefaAreaController(
-        ReportTarefaAreaRepository reportTarefaAreaRepository, AreaRepository areaRepository, TaskRepository taskRepository )
-    {
-        this.reportTarefaAreaRepository = reportTarefaAreaRepository;
-        this.areaRepository = areaRepository;
+    ReportTarefaAreaController(ReportTarefaAreaRepository repository, TaskRepository taskRepository, AreaRepository areaRepository){
+        this.reportRepository = repository;
         this.taskRepository = taskRepository;
+        this.areaRepository = areaRepository;
     }
 
-    @GetMapping("/tarefa-area")
-    Iterable<ReportTarefaArea> list() {
-        reportTarefaAreaRepository = areaRepository.getName();
-        return reportTarefaAreaRepository;
-    }
-    
-    @GetMapping("/tarefa-area/{id}")
-    ReportTarefaArea findTaskById(@PathVariable Long id) {
-        return repository.findById(id).get();
-    }
+     @GetMapping("/tarefa-area")
+     Iterable<ReportTarefaArea> list() {
+         
+        reportRepository.deleteAll();
 
-    @PostMapping("/area-tarefa")
-    ReportTarefaArea include(@RequestBody ReportTarefaArea newReportTarefaArea){
-        return repository.save(newReportTarefaArea);
-    }
+        var area_repository = areaRepository.findAll();
+        var task_repository = taskRepository.findAll();
 
-    @PutMapping("/tasks/{id}")
-    ReportTarefaArea update(@RequestBody ReportTarefaArea taskUpdated, @PathVariable Long id){
-        return repository.findById(id)
-        .map(Task -> {
-            Task.setName(taskUpdated.getName());
-            return repository.save(Task);
-        })
-        .orElseGet(() -> {
-            taskUpdated.setId(id);
-            return repository.save(taskUpdated);
-        });    
+        // relacionando tarefa à respectiva área
+        for(Task task : task_repository) {
+            ReportTarefaArea ReportTarefaArea = new ReportTarefaArea();
+            ReportTarefaArea.setTask(task.getName());
+            ReportTarefaArea.setDescription(task.getDescription());
+            area_repository.forEach(area->{
+                if(area.getId() == task.getId_area()) {
+                    ReportTarefaArea.setArea(area.getName());
+                }
+            });
+            reportRepository.save(ReportTarefaArea);
+        }
+
+        return reportRepository.findAll();
+
     }
 
 }
