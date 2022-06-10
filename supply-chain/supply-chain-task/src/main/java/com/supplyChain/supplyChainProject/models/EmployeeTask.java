@@ -1,32 +1,30 @@
 package com.supplyChain.supplyChainProject.models;
 
-import com.supplyChain.supplyChainProject.models.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.supplyChain.supplyChainProject.models.enums.EStatus;
 import com.supplyChain.supplyChainProject.models.interfaces.IValidation;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
-public class EmployeeTask extends Validation implements IValidation {
+public class EmployeeTask extends Validation {
 
     public EmployeeTask() {}
 
-    public EmployeeTask(Long id, String name, String description, double daysToFinish, Status status) {
+    public EmployeeTask(Long id, String name, String description, double daysToFinish, EStatus Status) {
         super();
         Id = id;
         this.name = name;
         this.description = description;
         this.daysToFinish = daysToFinish;
-        this.status = status;
+        this.Status = Status;
     }
 
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long Id;
     private String name;
     private String description;
     private double daysToFinish;
-    private Status status;
+    private EStatus Status;
 
     public Long getId() {
         return Id;
@@ -60,12 +58,12 @@ public class EmployeeTask extends Validation implements IValidation {
         this.daysToFinish = daysToFinish;
     }
 
-    public Status getStatus() {
-        return status;
+    public EStatus getStatus() {
+        return Status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(EStatus EStatus) {
+        this.Status = EStatus;
     }
 
     @Override
@@ -82,13 +80,13 @@ public class EmployeeTask extends Validation implements IValidation {
             setValid(false);
         }
 
-        if(getStatus() == Status.NONE) {
+        if(getStatus() == EStatus.NONE) {
             setValid(false);
         }
     }
 
     @Override
     public String toString() {
-        return " Task: " + this.name + " Description: " + this.description + " IsValid: " + this.isValid() + "Status: " + this.status;
+        return " Task: " + this.name + " Description: " + this.description + " IsValid: " + this.isValid() + "Status: " + this.Status;
     }
 }

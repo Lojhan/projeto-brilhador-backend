@@ -1,6 +1,6 @@
 package com.supplyChain.supplyChainProject.models.enums;
 
-public enum Status {
+public enum EStatus {
     NONE,
     CANCELLED,
     IN_PROGRESS,
