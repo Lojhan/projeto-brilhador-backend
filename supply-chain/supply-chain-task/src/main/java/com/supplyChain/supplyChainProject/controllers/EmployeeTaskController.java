@@ -4,9 +4,11 @@ import com.supplyChain.supplyChainProject.models.EmployeeTask;
 import com.supplyChain.supplyChainProject.repositories.EmployeeTaskRepository;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -16,20 +18,21 @@ import java.net.http.HttpResponse;
 @RestController
 public class EmployeeTaskController {
     private final EmployeeTaskRepository _repository;
+    private final String baseUrl = "/task";
 
     EmployeeTaskController(EmployeeTaskRepository repository) {
         _repository = repository;
     }
 
-    @PostMapping("/create-task")
+    @PostMapping(baseUrl + "/create")
         // create a new task
-    ResponseEntity newTask(@RequestBody EmployeeTask task) throws ExpiredJwtException, MalformedJwtException {
+    ResponseEntity newTask(@RequestBody EmployeeTask task) {
         try {
             task.Validate();
             System.out.println(task.toString());
 
             if (!task.IsValid) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Foram enviados dados inválidos");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{ \"success\": \"false\", \"error\" : \"Foram enviados dados incorretos\"}");
             }
 
             String json = String.format(
@@ -54,44 +57,40 @@ public class EmployeeTaskController {
             _repository.save(task);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(response.body().toString());
-        } catch (ExpiredJwtException e) {
-            throw new ExpiredJwtException(e.getHeader(), e.getClaims(), "Token expirado");
-        } catch (MalformedJwtException e) {
-            throw new MalformedJwtException("Token mal formado", e.getCause());
         } catch (Exception e) {
-            throw new RuntimeException("newTask{" + task.toString() + "}", e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
 
-    @GetMapping("/tasks")
+    @GetMapping(baseUrl + "/getAll")
         // lists all tasks
     ResponseEntity<Iterable<EmployeeTask>> getAllTasks() {
 
         try {
             return ResponseEntity.status(HttpStatus.OK).body(_repository.findAll());
         } catch (Exception e) {
-            throw new RuntimeException("getAllTasks", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
-    @GetMapping("/task/{id}")
+    @GetMapping(baseUrl + "/getById/{id}")
         // find task by id
     ResponseEntity<EmployeeTask> taskById(@PathVariable Long id) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(_repository.findById(id).orElse(null));
         } catch (Exception e) {
-            throw new RuntimeException("taskById::{" + id.toString() + "}", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
-    @PutMapping("/task/update/{id}")
+    @PutMapping(baseUrl + "/update/{id}")
     ResponseEntity<String> updateTask(@PathVariable Long id, @RequestBody EmployeeTask newTask) {
         return _repository.findById(id)
                 .map(Task -> {
-                    Task.setName(newTask.getName());
-                    Task.setDaysToFinish(newTask.getDaysToFinish());
-                    Task.setDescription(newTask.getDescription());
-                    Task.setStatus(newTask.getStatus());
+                    Task.setName(newTask.getName() == null ? Task.getName() : newTask.getName());
+                    Task.setDaysToFinish(newTask.getDaysToFinish() < 0 ? Task.getDaysToFinish() : newTask.getDaysToFinish());
+                    Task.setDescription(newTask.getDescription() == null ? Task.getDescription() : newTask.getDescription());
+                    Task.setStatus(newTask.getStatus() == null ? Task.getStatus() : newTask.getStatus());
                     _repository.save(Task);
                     return ResponseEntity.status(HttpStatus.OK).body("Atualizado com sucesso!");
                 }).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id não encontrado."));

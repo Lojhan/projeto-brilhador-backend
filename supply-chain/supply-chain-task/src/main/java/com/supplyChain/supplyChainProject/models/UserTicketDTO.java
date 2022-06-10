@@ -1,6 +1,6 @@
 package com.supplyChain.supplyChainProject.models;
 
-import com.supplyChain.supplyChainProject.models.enums.Status;
+import com.supplyChain.supplyChainProject.models.enums.EStatus;
 
 import java.io.Serializable;
 
@@ -23,7 +23,7 @@ public class UserTicketDTO implements Serializable {
         task.setName(this.ticket.getTitle());
         task.setDescription(this.ticket.getDescription());
         task.setDaysToFinish(5);
-        task.setStatus(Status.IN_PROGRESS);
+        task.setStatus(EStatus.IN_PROGRESS);
         return task;
     }
 }

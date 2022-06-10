@@ -1,12 +1,16 @@
 package com.supplyChain.supplyChainProject.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.supplyChain.supplyChainProject.models.interfaces.IValidation;
 
-public class Validation {
+import javax.persistence.Transient;
+
+public abstract class Validation implements IValidation {
 
     public Validation() {
         IsValid = true;
     }
+    @Transient @JsonIgnore
     public boolean IsValid;
 
     public boolean isValid() {
