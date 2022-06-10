@@ -19,7 +19,7 @@ public class CargaInicial {
       log.info("Carregando..." + repository.save(new PlanoContas("Ativo", "Credito", "Patrimonial")));
       log.info("Carregando..." + repository.save(new PlanoContas("Passivo", "Débito", "Patrimonial")));
       log.info("Carregando..." + repository.save(new PlanoContas("Receita", "Crédito", "Resultado")));
-      log.info("Carregando..." + repository.save(new PlanoContas("Despesa", "Dédito", "Resultado")));
+      log.info("Carregando..." + repository.save(new PlanoContas("Despesa", "Dédito", "xxxxx")));
     };
   }
 
