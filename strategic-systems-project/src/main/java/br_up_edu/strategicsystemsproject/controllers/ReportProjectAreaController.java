@@ -1,8 +1,6 @@
 package br_up_edu.strategicsystemsproject.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import br_up_edu.strategicsystemsproject.domain.Project;
 import br_up_edu.strategicsystemsproject.domain.ReportProjectArea;
@@ -31,7 +29,7 @@ public class ReportProjectAreaController {
         var area_repository = areaRepository.findAll();
         var project_repository = projectRepository.findAll();
 
-        // relacionando projeto(s) a respectiva area
+       //relacionando projeto(s) a respectiva area
         for(Project project : project_repository) {
             ReportProjectArea ReportProjectArea = new ReportProjectArea();
             ReportProjectArea.setProject(project.getName());
@@ -46,6 +44,5 @@ public class ReportProjectAreaController {
         
         return reportRepository.findAll();
     }
-
 
 }

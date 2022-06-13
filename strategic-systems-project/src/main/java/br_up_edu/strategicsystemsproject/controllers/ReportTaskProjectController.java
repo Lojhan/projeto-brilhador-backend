@@ -22,7 +22,7 @@ public class ReportTaskProjectController {
         this.projectRepository = projectRepository;
     }
 
-    @GetMapping("/tarefa-area")
+    @GetMapping("/tarefa-project")
     Iterable<ReportTaskProject> list() {
          
         repository.deleteAll();
@@ -30,20 +30,19 @@ public class ReportTaskProjectController {
         var task_repository = taskRepository.findAll();
         var project_repository = projectRepository.findAll();
 
-        // relacionando tarefa à respectiva área
-        for(Task task : task_repository) {
-            ReportTaskProject ReportTaskProject = new ReportTaskProject();
-            ReportTaskProject.setTask(task.getName());
-            ReportTaskProject.setDescription(task.getDescription());
-            project_repository.forEach(project->{
-                if(project.getId() == task.getId_area()) {
-                    ReportTaskProject.setProject(project.getName());
-                }
-            });
-            repository.save(ReportTaskProject);
-        }
+       //relacionando tarefa à respectiva área
+       for(Task task : task_repository) {
+        ReportTaskProject ReportTaskProject = new ReportTaskProject();
+        ReportTaskProject.setTask(task.getName());
+        ReportTaskProject.setDescription(task.getDescription());
+        project_repository.forEach(project->{
+            if(task.getId_project() == project.getId_area()) {
+                ReportTaskProject.setProject(project.getName());
+            }
+        });
+        repository.save(ReportTaskProject);
+    }
 
         return repository.findAll();
-
     }
 }
