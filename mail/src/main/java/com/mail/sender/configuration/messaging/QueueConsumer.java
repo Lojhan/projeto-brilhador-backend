@@ -45,6 +45,5 @@ public class QueueConsumer {
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-
     }
 }

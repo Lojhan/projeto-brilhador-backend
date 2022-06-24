@@ -1,17 +1,20 @@
 package com.clientRelationship.clientRelationshipProject.models.base;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "addresses")
 public class Address {
     
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
 
     private String street;
@@ -22,12 +25,12 @@ public class Address {
     private String state;
     private String country;
 
-    @OneToOne(mappedBy = "address")
-    private User user;
+    private UUID userId;
 
-    public Address(String id, String street, String number, String complement, String zipCode, String city,
-            String state, String country) {
-        this.id = id;
+    public Address() {
+    }
+
+    public Address(String street, String number, String complement, String zipCode, String city, String state, String country, UUID userId) {
         this.street = street;
         this.number = number;
         this.complement = complement;
@@ -35,6 +38,7 @@ public class Address {
         this.city = city;
         this.state = state;
         this.country = country;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -99,5 +103,13 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 }

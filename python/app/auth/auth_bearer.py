@@ -28,6 +28,5 @@ class JWTBearer(HTTPBearer):
             url = "http://authentication-service-brilhador/validate-token"
             response = requests.post(url=url, data='token=' + jwtoken, headers=headers)
             return response.json()
-        except ValueError:
-            print(ValueError)
-            raise HTTPException(status_code=500, detail="Internal server error.")
+        except Exception as e:
+            raise HTTPException(status_code=403, detail="Invalid token or expired token.")

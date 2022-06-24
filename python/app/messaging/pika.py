@@ -5,7 +5,6 @@ class Pika():
     connection = None
     instance = None
     def __init__(self):
-        container_name = 'rabbitmq-server'
         if not self.instance:
             self.connection = pika.BlockingConnection(
                 pika.URLParameters(
@@ -28,4 +27,3 @@ class Pika():
 
     def __exit__(self):
         self.connection.close()
-
