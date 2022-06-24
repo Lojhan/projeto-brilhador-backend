@@ -1,6 +1,5 @@
 package com.clientRelationship.clientRelationshipProject.configuration.messaging;
 
-import com.clientRelationship.clientRelationshipProject.models.dto.UserAndTicketDto;
 import com.clientRelationship.clientRelationshipProject.models.dto.UserTicketDTO;
 
 import org.springframework.amqp.core.Queue;
@@ -18,6 +17,14 @@ public class QueueSender {
     @Qualifier("userTicketsQueue")
     @Autowired()
     private Queue userTicketsQueue;
+
+    @Qualifier("userTicketEmployeeTaskQueue")
+    @Autowired()
+    private Queue userTicketEmployeeTaskQueue;
+
+    public void sendUserTicketEmployeeTask(UserTicketDTO userTicketDTO) {
+        rabbitTemplate.convertAndSend(this.userTicketEmployeeTaskQueue.getName(), userTicketDTO.toJSON());
+    }
 
     public void sendUserTicketMessage(UserTicketDTO userTicketDTO) {
         rabbitTemplate.convertAndSend(this.userTicketsQueue.getName(), userTicketDTO.toJSON());
