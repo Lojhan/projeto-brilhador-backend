@@ -15,6 +15,9 @@ public class SenderConfig {
     @Value("${queue.name.userTicketEmplyeeTask}")
     private String userTicketEmplyeeTask;
 
+    @Value("${queue.name.userAddr}")
+    private String userAddr;
+
     @Bean(name = "userTicketEmployeeTaskQueue")
     public Queue userTicketEmployeeTaskQueue() {
         return new Queue(userTicketEmplyeeTask, true);
@@ -23,6 +26,11 @@ public class SenderConfig {
     @Bean(name = "userTicketsQueue")
     public Queue userTicketsQueue() {
         return new Queue(message, true);
+    }
+
+    @Bean(name = "userAddrQueue")
+    public Queue userAddrQueue() {
+        return new Queue(userAddr, true);
     }
 
     

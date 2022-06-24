@@ -20,7 +20,7 @@ class Pika():
         return Pika.instance
 
     def declare_queue(self, queue) -> None:
-        self.channel.queue_declare(queue)
+        self.channel.queue_declare(queue, durable=True)
 
     def publish_message(self, exchange='', routing_key='hello', body="empty") -> None:
         self.channel.basic_publish(exchange=exchange, routing_key=routing_key, body=body)

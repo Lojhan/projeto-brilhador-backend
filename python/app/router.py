@@ -1,16 +1,19 @@
-from http.client import HTTPException
-from multiprocessing.sharedctypes import Value
-from fastapi import Depends, Request, APIRouter
+from fastapi import Depends, Request, APIRouter, HTTPException
 
 from app.model import User, SetCepRequestDto
 from app.auth.auth_bearer import JWTBearer
 from app.messaging.pika import Pika
 from app.services.viacep import ViaCepService
+from app.messaging.kafka import Kafka
 import json
+
 
 router = APIRouter()
 
 pika = Pika.getInstance()
+
+kafka = Kafka.getInstance()
+# kafka.declare_topic('deconto')
 
 routing_key = "viacep-add-usr-addr"
 
@@ -27,8 +30,9 @@ async def add_post(
         user: User = User.fromDict(request._state.user)
         addrinfo = viaCepService.getAddressInfo(body.cep)
         user.address = addrinfo
-        body = json.dumps(user.toDict())
-        pika.publish_message(routing_key=routing_key, body=body)
+        body = json.dumps(user.toDict()).encode()
+        kafka.publish_message(body)
+        # pika.publish_message(routing_key=routing_key, body=body)
         return { "user": user }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
