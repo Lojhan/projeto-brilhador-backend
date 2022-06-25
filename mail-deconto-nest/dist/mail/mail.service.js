@@ -10,25 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailService = void 0;
-const mailer_1 = require("@nestjs-modules/mailer");
 const common_1 = require("@nestjs/common");
 let MailService = class MailService {
-    constructor(mailerService) {
-        this.mailerService = mailerService;
-    }
+    constructor() { }
     sendTicketMail(payload) {
         const { user, ticket } = payload;
-        return this.mailerService.sendMail({
-            to: user.email,
-            subject: `[${ticket.priority} PRIORITY TICKET] Seu ticket foi criado!`,
-            template: `${__dirname}/templates/token.template.hbs`,
-            context: { user, ticket },
-        });
+        const mail = `
+      Olá, ${user.name}!
+      Seu ticket foi criado com sucesso!
+      Ticket priority: ${ticket.priority}
+      Ticket description: ${ticket.description}
+
+      Atenciosamente,
+      Equipe de Suporte
+    `;
+        console.log(mail);
     }
 };
 MailService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [mailer_1.MailerService])
+    __metadata("design:paramtypes", [])
 ], MailService);
 exports.MailService = MailService;
 //# sourceMappingURL=mail.service.js.map

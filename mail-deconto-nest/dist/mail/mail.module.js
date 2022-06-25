@@ -7,33 +7,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailModule = void 0;
-const mailer_1 = require("@nestjs-modules/mailer");
 const handlebars_adapter_1 = require("@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
 const common_1 = require("@nestjs/common");
 const mail_service_1 = require("./mail.service");
+const options = {
+    transport: {
+        host: 'smtp.mandrillapp.com',
+        authenticationType: 'login',
+        port: 587,
+        auth: {
+            user: 'viniciuslojhan@gmail.com',
+            pass: '123456Ab!',
+        },
+    },
+    template: {
+        dir: `${__dirname}/templates`,
+        adapter: new handlebars_adapter_1.HandlebarsAdapter(),
+        options: {
+            strict: true,
+        },
+    },
+};
 let MailModule = class MailModule {
 };
 MailModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            mailer_1.MailerModule.forRoot({
-                transport: {
-                    host: 'smtp.gmail.com',
-                    port: 587,
-                    auth: {
-                        user: 'equipebrilhador@gmail.com',
-                        pass: '123456Ab!',
-                    },
-                },
-                template: {
-                    dir: `${__dirname}/templates`,
-                    adapter: new handlebars_adapter_1.HandlebarsAdapter(),
-                    options: {
-                        strict: true,
-                    },
-                },
-            }),
-        ],
+        imports: [],
         providers: [mail_service_1.MailService],
     })
 ], MailModule);

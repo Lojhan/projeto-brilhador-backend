@@ -216,6 +216,15 @@ services:
   #     - postgres-brilhador
   #     - rabbitmq
   #     - api-gateway
+  mail-service-deconto:
+    container_name: mail-service-deconto
+    image: node:17.5.0-alpine
+    volumes:
+      - ./mail-deconto-nest:/app
+    working_dir: /app
+    command: npm run start:dev
+    networks:
+      - brilhador
   python-service-deconto: 
     container_name: python-service-deconto
     build: 
@@ -231,6 +240,7 @@ services:
       - ./python:/app
     depends_on:
       - rabbitmq-server 
+      - kafka-deconto
   zookeeper:
     container_name: zookeeper-deconto
     image: docker.io/bitnami/zookeeper:3.8
