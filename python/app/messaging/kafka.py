@@ -25,5 +25,5 @@ class Kafka():
         self.producer.send('deconto', body)
 
     def __exit__(self):
-        self.client.close()
+        # self.client.close()
         self.producer.close()
